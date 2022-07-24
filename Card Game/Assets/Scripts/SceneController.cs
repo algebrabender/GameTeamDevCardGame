@@ -8,30 +8,60 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    // taking reference for black image 
+    public Animator transition;
+
    
+    
+    
+    
+    
+    
     // Function for start game when we hit play button
-   public void PlayGame()
+    public void PlayGame()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        
+
     }
 
-    
+
     //Function for quit the game when hit quit button
     public void Quit()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
-         #else
+#else
         Application.Quit();
-        #endif
+#endif
     }
 
 
+    
+    
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 2));
+      
     }
 
+
+    
+    
+    
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(levelIndex);
+
+    }
+
+
    
+
 }
+
