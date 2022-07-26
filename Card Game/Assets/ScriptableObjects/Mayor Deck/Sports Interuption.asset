@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610504dd88a42a4409d776273bd84109, type: 3}
+  m_Name: Sports Interuption
+  m_EditorClassIdentifier: 
+  cardTitle: Sports Interruption
+  description: The sports program is delayed so the mayor can give a speech.
+  specialEffect: 
+  damage: 1
+  blackStrength: -1
+  strength: -1
+  health: 0
+  maxStrenght: 0
+  maxHealth: 0
+  cardFront: {fileID: 21300000, guid: 8c759b24cd56d5144a4c37b2280362c2, type: 3}
+  cardBack: {fileID: 21300000, guid: 6a51a42dc6eae3743afc01279c2a19d4, type: 3}
+  cardImage: {fileID: 21300000, guid: f3b8c1763300bbc409e17f67d620169a, type: 3}
+  numberInDeck: 6
+  numberOfTurnsSkippedAfter: 0

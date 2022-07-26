@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 610504dd88a42a4409d776273bd84109, type: 3}
-  m_Name: Ticking Plushie
+  m_Name: Flying Boot
   m_EditorClassIdentifier: 
-  cardTitle: Ticking Plushie
-  description: Is it a bomb? It might just buy enough time!
-  specialEffect: 'Special Effect: Pauses enemy attacks for two turns.'
-  damage: 0
+  cardTitle: Flying Boot
+  description: Good enough for Bush, good enough for these guys!
+  damage: 3
   blackStrength: 0
-  strength: -1
+  strength: -2
   health: 0
   maxStrenght: 0
   maxHealth: 0
-  cardFront: {fileID: 21300000, guid: e5a5ba6b992f73449a85ba0f4fe03f56, type: 3}
+  cardFront: {fileID: 21300000, guid: 8b32319f2df30f94bbc473bb99be896b, type: 3}
   cardBack: {fileID: 21300000, guid: c87335a7f0c73b4459d1cba454ce80c3, type: 3}
-  cardImage: {fileID: 21300000, guid: 196b1f6a555251b47b36ed118a43b4ea, type: 3}
-  numberInDeck: 1
-  numberOfTurnsSkippedAfter: 2
+  cardImage: {fileID: 21300000, guid: 0c3c327ce7730c34288551c89c6fdca6, type: 3}
+  numberInDeck: 3
