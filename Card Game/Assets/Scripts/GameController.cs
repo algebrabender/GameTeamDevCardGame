@@ -65,9 +65,5 @@ public class GameController : MonoBehaviour
         #endif
     }
 
-    internal void PlayDealSound()
-    {
-        dealAudio.Play();
-    }
-}
+   
 }
