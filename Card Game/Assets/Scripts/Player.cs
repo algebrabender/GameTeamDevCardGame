@@ -7,41 +7,56 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour, IDropHandler
 {
     public Image playerImage = null;
-    public Image healthNumberImage = null;
     public Image glowImage = null;
+
+    public Text maxStrengthText = null;
+    public Text strengthText = null;
+    public Text maxHealthText = null;
+    public Text healthText = null;
 
     internal int maxHealth = 10;
     internal int health = 5; //current health
-    internal int strength = 4; //6 max
-
-    public GameObject[] strengthPoints = new GameObject[6];
+    internal int maxStrength = 6;
+    internal int strength = 4; //current strength
 
     public AudioSource dealAudio = null;
 
+    private Animator animator = null;
+
     void Start()
     {
-
+        animator = GetComponent<Animator>();
+        UpdateMaxHealth();
+        UpdateHealth();
+        UpdateMaxStrength();
+        UpdateStrength();
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void UpdateMaxHealth()
     {
-        
+        maxHealthText.text = maxHealth.ToString();
     }
 
     internal void UpdateHealth()
     {
-
+        if (health > 0)
+            healthText.text = health.ToString();
     }
 
-    internal void UpdateManaBalls()
+    internal void UpdateMaxStrength()
     {
-
+        maxStrengthText.text = maxStrength.ToString();
     }
 
-    public void OnDrop(PointerEventData eventData)
+    internal void UpdateStrength()
     {
-        throw new System.NotImplementedException();
+        strengthText.text = strength.ToString();
+    }
+
+    internal void PlayHitAnim()
+    {
+        if (animator != null)
+            animator.SetTrigger("Hit");
     }
 
     internal void PlayDealSound()
@@ -49,4 +64,21 @@ public class Player : MonoBehaviour, IDropHandler
         dealAudio.Play();
     }
 
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (!GameController.instance.isPlayable)
+            return;
+
+        GameObject obj = eventData.pointerDrag;
+
+        if (obj != null)
+        {
+            Card card = obj.GetComponent<Card>();
+
+            if (card != null)
+            {
+                GameController.instance.UseCard(card);
+            }
+        }
+    }
 }

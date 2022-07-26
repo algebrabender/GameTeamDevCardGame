@@ -5,40 +5,83 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour, IDropHandler
-{
-    public Sprite level1Enemy = null;
-    public Sprite level2Enemy = null;
+{ 
+    public List<Sprite> level1Enemies = new List<Sprite>(3);
+    public List<Sprite> level2Enemies = new List<Sprite>(2);
     public Sprite level3Enemy = null;
+
+    public Image enemyImage = null;
+
+    public Text maxStrengthText = null;
+    public Text strengthText = null;
+    public Text maxHealthText = null;
+    public Text healthText = null;
 
     internal int maxHealth;
     internal int health; //current health
-    internal int strength;
+    internal int maxStrength;
+    internal int strength; //current health
 
-    public GameObject[] strengthPoints = new GameObject[6];
+    public AudioSource dealAudio = null;
+
+    private Animator animator = null;
 
     void Start()
     {
-        //setting up enemy based on level
+        animator = GetComponent<Animator>();
+        UpdateMaxHealth();
+        UpdateHealth();
+        UpdateMaxStrength();
+        UpdateStrength();
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void UpdateMaxHealth()
     {
-
+        maxHealthText.text = maxHealth.ToString();
     }
 
     internal void UpdateHealth()
     {
-
+        if (health > 0)
+            healthText.text = health.ToString();
     }
 
-    internal void UpdateManaBalls()
+    internal void UpdateMaxStrength()
     {
+        maxStrengthText.text = maxStrength.ToString();
+    }
 
+    internal void UpdateStrength()
+    {
+        strengthText.text = strength.ToString();
+    }
+
+    internal void PlayHitAnim()
+    {
+        if (animator != null)
+            animator.SetTrigger("Hit");
+    }
+
+    internal void PlayDealSound()
+    {
+        dealAudio.Play();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (!GameController.instance.isPlayable)
+            return;
+
+        GameObject obj = eventData.pointerDrag;
+
+        if (obj != null)
+        {
+            Card card = obj.GetComponent<Card>();
+
+            if (card != null)
+            {
+                GameController.instance.UseEnemyCard(card);
+            }
+        }
     }
 }
