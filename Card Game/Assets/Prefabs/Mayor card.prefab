@@ -30,12 +30,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.5, y: 36.6}
+  m_AnchoredPosition: {x: 34.1, y: 24.2}
   m_SizeDelta: {x: 9.7004, y: 4.7183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8850781638476009649
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.71696424, z: 0.37449646, w: 0.000015251171}
+  m_margin: {x: 0, y: 0.13348341, z: -0.050697327, w: 0.000015251171}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -143,7 +143,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6692673797370217116}
+  - component: {fileID: 2940486658418240420}
   - component: {fileID: 664955714034093467}
   m_Layer: 0
   m_Name: Mayor card
@@ -152,16 +152,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6692673797370217116
-Transform:
+--- !u!224 &2940486658418240420
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8012576846461833885}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 715.4032, y: -843.4819, z: -9.120911}
-  m_LocalScale: {x: 2.184798, y: 2.184798, z: 2.184798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9010077109759232769}
@@ -176,6 +176,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &664955714034093467
 Animator:
   serializedVersion: 4
@@ -226,12 +231,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.7, y: 52.572697}
+  m_AnchoredPosition: {x: -0.0000014305, y: 36.6}
   m_SizeDelta: {x: 42.3197, y: 9.1754}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077108632681609
@@ -361,13 +366,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.7, y: 12.8}
-  m_SizeDelta: {x: 9.7004, y: 1.5688}
+  m_AnchoredPosition: {x: 34.1, y: 1.4068}
+  m_SizeDelta: {x: 9.7004, y: 2.8137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077108933397473
 CanvasRenderer:
@@ -462,7 +467,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -2.0263023, y: -2.8099058, z: 0.37449646, w: -0.2532686}
+  m_margin: {x: -0.0033879292, y: -0.040076375, z: 0.0010561926, w: -0.0042955885}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -498,12 +503,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.3, y: 47.1}
+  m_AnchoredPosition: {x: 34.1, y: 35.01}
   m_SizeDelta: {x: 9.7004, y: 4.7183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109204287201
@@ -599,7 +604,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.71696424, z: 0.37449646, w: 0.000015251171}
+  m_margin: {x: 0, y: 0.057095777, z: -0.10931444, w: 0.000015251171}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -635,12 +640,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.7, y: 24.1}
+  m_AnchoredPosition: {x: 34.1, y: 12.7}
   m_SizeDelta: {x: 9.7004, y: 4.533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109330740905
@@ -736,7 +741,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -2.1990564, z: 0.37449646, w: 0.000015251171}
+  m_margin: {x: 0, y: -0.06275773, z: 0.06933737, w: 0.000015251171}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -772,13 +777,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.7479, y: -15.1739}
-  m_SizeDelta: {x: 67.8737, y: 42.6863}
+  m_AnchoredPosition: {x: 0.1713, y: -27.9}
+  m_SizeDelta: {x: 66.1606, y: 42.6863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109609090328
 CanvasRenderer:
@@ -873,7 +878,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.000030467529, y: -0.45232776, z: 1.8974648, w: 0.10586929}
+  m_margin: {x: -0.000030514308, y: -0.45232776, z: 0.18434906, w: 0.10586929}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -909,13 +914,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.2, y: 31.1}
-  m_SizeDelta: {x: 50.4648, y: 29.5076}
+  m_AnchoredPosition: {x: -2.879, y: 13.899}
+  m_SizeDelta: {x: 46.6198, y: 27.7987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109616980604
 CanvasRenderer:
@@ -985,12 +990,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.8, y: 12.1}
+  m_AnchoredPosition: {x: 0.0000019073, y: -0.5515}
   m_SizeDelta: {x: 86.5162, y: 115.4238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109759232771
@@ -1061,13 +1066,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6692673797370217116}
+  m_Father: {fileID: 2940486658418240420}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.1, y: 11.5}
-  m_SizeDelta: {x: 86.939, y: 114.8726}
+  m_AnchoredPosition: {x: 0.21141, y: -0.82096}
+  m_SizeDelta: {x: 86.939, y: 114.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010077109885956631
 CanvasRenderer:
