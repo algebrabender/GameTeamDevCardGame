@@ -24,10 +24,6 @@ public class CardData : ScriptableObject
     public Sprite cardFront;
     public Sprite cardBack;
     public Sprite cardImage;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 173d9ed0f431f7299e848adfcbebae25a1040152
 
     [Header("")]
     public int numberInDeck;
