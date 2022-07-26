@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, IDropHandler
 
     public GameObject[] strengthPoints = new GameObject[6];
 
+    public AudioSource dealAudio = null;
+
     void Start()
     {
 
@@ -41,4 +43,10 @@ public class Player : MonoBehaviour, IDropHandler
     {
         throw new System.NotImplementedException();
     }
+
+    internal void PlayDealSound()
+    {
+        dealAudio.Play();
+    }
+
 }
