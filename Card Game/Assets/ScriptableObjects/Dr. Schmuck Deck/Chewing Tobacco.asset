@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610504dd88a42a4409d776273bd84109, type: 3}
+  m_Name: Chewing Tobacco
+  m_EditorClassIdentifier: 
+  cardTitle: Chewing Tobacco
+  description: Chew, chew, chew!
+  specialEffect: 'Special Effect: Increases max strength by one.'
+  damage: 0
+  blackStrength: 0
+  strength: -1
+  health: 0
+  maxStrenght: 0
+  maxHealth: 0
+  cardFront: {fileID: 21300000, guid: e5a5ba6b992f73449a85ba0f4fe03f56, type: 3}
+  cardBack: {fileID: 21300000, guid: c87335a7f0c73b4459d1cba454ce80c3, type: 3}
+  cardImage: {fileID: 21300000, guid: ca7f9fc6a249df043b04b858e93a45df, type: 3}
+  numberInDeck: 2
+  numberOfTurnsSkippedAfter: 0
