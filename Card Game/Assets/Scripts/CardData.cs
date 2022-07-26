@@ -19,10 +19,7 @@ public class CardData : ScriptableObject
     public Sprite cardFront;
     public Sprite cardBack;
     public Sprite cardImage;
-    public Sprite effect1Sprite;
-    public Sprite effect2Sprite;
-    public Sprite effect3Sprite;
-    public Sprite effect4Sprite;
+    
 
     public int numberInDeck;
 

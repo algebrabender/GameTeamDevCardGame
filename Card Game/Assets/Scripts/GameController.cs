@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     public Player enemy = null;
 
     public List<CardData> cards = new List<CardData>();
+
     public List<CardData> level1EnemyCards = new List<CardData>();
     public List<CardData> level2EnemyCards = new List<CardData>();
     public List<CardData> level3EnemyCards = new List<CardData>();
@@ -63,4 +64,10 @@ public class GameController : MonoBehaviour
             Application.Quit();
         #endif
     }
+
+    internal void PlayDealSound()
+    {
+        dealAudio.Play();
+    }
+}
 }

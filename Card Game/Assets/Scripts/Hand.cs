@@ -12,11 +12,29 @@ public class Hand
 
     public void RemoveCard(Card card)
     {
+        for(int i = 0; i < 3; i++)
+        {
+            if(cards[i] == card)
+            {
+                GameObject.Destroy(cards[i].gameObject);
+                cards[i] = null;
+
+                if (isPlayers)
+                    GameController.instance.playerDeck.DealCard(this);
+                else
+                    GameController.instance.enemyDeck.DealCard(this);
+                break;
+            }
+        }
         
     }
 
     internal void ClearHand()
     {
-        
+        for(int i = 0; i < 3; i++)
+        {
+            GameObject.Destroy(cards[i].gameObject);
+            cards[i] = null;
+        }
     }
 }
