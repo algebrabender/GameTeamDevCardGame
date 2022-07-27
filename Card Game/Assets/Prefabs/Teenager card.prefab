@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5643615722619835271}
   - component: {fileID: 4266737273912390044}
   - component: {fileID: 6501571440413186286}
+  - component: {fileID: -7765421628850922379}
   m_Layer: 0
   m_Name: Teenager card
   m_TagString: Untagged
@@ -224,6 +225,19 @@ MonoBehaviour:
   cardImage: {fileID: 5694276333558828668}
   cardFrontImage: {fileID: 5694276333937030917}
   cardBackImage: {fileID: 5694276333824658961}
+--- !u!114 &-7765421628850922379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226798252212741354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &5694276332103645177
 GameObject:
   m_ObjectHideFlags: 0

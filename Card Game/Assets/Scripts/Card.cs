@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
@@ -35,5 +36,18 @@ public class Card : MonoBehaviour
         cardImage.sprite = cardData.cardImage;
         cardFrontImage.sprite = cardData.cardFront;
         cardBackImage.sprite = cardData.cardBack;
+
+        EventTrigger trigger = GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((data) => { OnClick((PointerEventData)data); });
+        trigger.triggers.Add(entry);
+    }
+
+    public void OnClick(BaseEventData data)
+    {
+        //TODO: play that card
+        PointerEventData pData = (PointerEventData)data;
+        Debug.Log("try");
     }
 }
