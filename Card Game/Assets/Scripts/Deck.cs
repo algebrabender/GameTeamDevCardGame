@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Deck
@@ -26,12 +28,49 @@ public class Deck
         }
     }
 
-    private CardData RandomCard()
+    public void CreateEnemyDeck(int level)
+    {
+        List<CardData> cardDataInOrder = new List<CardData>();
+        List<CardData> enemyCards = null;
+
+        switch(level)
+        {
+            case 0:
+                enemyCards = GameController.instance.level1EnemyCards;
+                break;
+            case 1:
+                enemyCards = GameController.instance.level2EnemyCards;
+                break;
+            case 2:
+                enemyCards = GameController.instance.level3EnemyCards;
+                break;
+
+        }
+
+        foreach (CardData cardData in enemyCards)
+        {
+            for (int i = 0; i < cardData.numberInDeck; i++)
+                cardDataInOrder.Add(cardData);
+        }
+
+        while (cardDataInOrder.Count > 0)
+        {
+            int randomIndex = Random.Range(0, cardDataInOrder.Count);
+            cardDatas.Add(cardDataInOrder[randomIndex]);
+            cardDataInOrder.RemoveAt(randomIndex);
+        }
+    }
+
+    private CardData RandomCard(bool isPlayer)
     {
         CardData result = null;
 
-        if (cardDatas.Count == 0)
-            Create();
+        if (isPlayer)
+        {
+            if (cardDatas.Count == 0)
+                GameController.instance.GameOverDueCards();
+        }
+        //TODO: what happens with enemy?
 
         result = cardDatas[0];
         cardDatas.RemoveAt(0);
@@ -39,15 +78,15 @@ public class Deck
         return result;
     }
 
-    private Card CreateNewCard(Vector3 position, string animName)
+    private Card CreateNewCard(Vector3 position, string animName, GameObject prefab, bool isPlayer)
     {
-       GameObject newCard = GameObject.Instantiate(GameController.instance.cardPrefab, GameController.instance.canvas.gameObject.transform);
+       GameObject newCard = GameObject.Instantiate(prefab, GameController.instance.canvas.gameObject.transform);
 
         newCard.transform.position = position;
         Card card = newCard.GetComponent<Card>();
         if (card)
         {
-            card.cardData = RandomCard();
+            card.cardData = RandomCard(isPlayer);
             card.Initialize();
 
             Animator animator = newCard.GetComponentInChildren<Animator>();
@@ -68,26 +107,38 @@ public class Deck
             return null;
         }
     }
-
-    
-    
     
     public void DealCard(Hand hand)
     {
+        GameObject prefab = null;
         for(int h =0;  h < 3; h++)
         {
             if(hand.cards[h] == null)
             {
                 if (hand.isPlayers)
                 {
-                    GameController.instance.player.PlayDealSound();
+                    //GameController.instance.player.PlayDealSound();
+                    prefab = GameController.instance.cardPrefab1;
                 }
                 else
                 {
-                    GameController.instance.enemy.PlayDealSound();
+                    //GameController.instance.enemy.PlayDealSound();
+                    switch (GameController.instance.lastPlayedLevel)
+                    {
+                        case 0:
+                            prefab = GameController.instance.teenagerCardPrefab;
+                            break;
+                        case 1:
+                            prefab = GameController.instance.policemanCardPrefab;
+                            break;
+                        case 2:
+                            prefab = GameController.instance.mayorCardPrefab;
+                            break;
+
+                    }
                 }
 
-                hand.cards[h] = CreateNewCard(hand.positions[h].position, hand.animNames[h]);
+                hand.cards[h] = CreateNewCard(hand.positions[h].position, hand.animNames[h], prefab, hand.isPlayers);
                 return;
             }
         }

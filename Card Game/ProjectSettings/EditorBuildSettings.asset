@@ -15,15 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/BackstoryScene.unity
     guid: b2699a541fb59254dbcd2a4f334db2a0
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 98fbabbe7cd95414ea2bb83902eaa1bb
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/LevelScene.unity
     guid: df64d1b8e0396b44d89f573dd149437b
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+//<<<<<<< HEAD
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+//=======
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 2ccbe637424c3a243a0a2d7d7c2e883e
+//>>>>>>> e11f03bf3f4f7d529d840420e4f5e0a839373fe7
   m_configObjects: {}
