@@ -28,8 +28,8 @@ public class CardData : ScriptableObject
     
 //=======
 //>>>>>>> 173d9ed0f431f7299e848adfcbebae25a1040152
-=======
->>>>>>> d728453794132243379596dafdf3996b2f19c784
+//=======
+//>>>>>>> d728453794132243379596dafdf3996b2f19c784
 
     [Header("")]
     public int numberInDeck;
