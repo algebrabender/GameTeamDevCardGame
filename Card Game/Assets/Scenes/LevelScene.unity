@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 111595014}
   - component: {fileID: 111595013}
   m_Layer: 5
-  m_Name: PlayerImage
+  m_Name: EnemyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.14368, y: -0.000011921}
-  m_SizeDelta: {x: 548.9092, y: 457.94}
+  m_AnchoredPosition: {x: 47.918, y: 40.739}
+  m_SizeDelta: {x: 452.7858, y: 376.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111595013
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 453fea55bfaa1f84baa32d7d8ba3a28c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -367,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &225755763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -502,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &315098255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -518,9 +519,9 @@ RectTransform:
   m_Father: {fileID: 1663079164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315098256
@@ -1663,16 +1664,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293e048cfd9cb2d429f76b3372eaa3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerImage: {fileID: 0}
-  healthNumberImage: {fileID: 0}
+  playerImage: {fileID: 345722188}
   glowImage: {fileID: 0}
-  strengthPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  maxStrengthText: {fileID: 1407465618}
+  strengthText: {fileID: 1324274975}
+  maxHealthText: {fileID: 1347209510}
+  healthText: {fileID: 725155572}
+  dealAudio: {fileID: 0}
 --- !u!1 &799518127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,28 +1700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bb457e5be58bb409e153e20eee703a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthNumbers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  damageNumbers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  levelBackgrounds:
+  - {fileID: 21300000, guid: af4f5ea29a1f2d540b7817c772bc05f5, type: 3}
+  - {fileID: 21300000, guid: baf4b0e8ab1f04f4fa95e61b4c504aa7, type: 3}
+  - {fileID: 21300000, guid: c0489f2d12b3aeb4cb99525c0e15694e, type: 3}
+  backgroundImage: {fileID: 1334227629}
   playerDeck:
     cardDatas: []
   enemyDeck:
@@ -1734,37 +1715,73 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     positions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1780757128}
+    - {fileID: 949661039}
+    - {fileID: 938003544}
     animNames:
-    - 
-    - 
-    - 
-    isPlayers: 0
+    - carddrawn1
+    - carddrawn2
+    - carddrawn3
+    isPlayers: 1
   enemysHand:
     cards:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     positions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 315098255}
+    - {fileID: 1882192463}
+    - {fileID: 938241559}
     animNames:
-    - 
-    - 
-    - 
+    - enemycarddrawan1
+    - enemycarddrawan2
+    - enemycarddrawan3
     isPlayers: 0
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  cards: []
-  level1EnemyCards: []
-  level2EnemyCards: []
-  level3EnemyCards: []
-  cardPrefab: {fileID: 0}
-  canvas: {fileID: 0}
+  player: {fileID: 789489031}
+  enemy: {fileID: 1797596591}
+  cards:
+  - {fileID: 11400000, guid: 967091656aca56d41b0baf5325d86283, type: 2}
+  - {fileID: 11400000, guid: b212053b3791fe243af1d7cccc525775, type: 2}
+  - {fileID: 11400000, guid: 90224982ca1175b44896cf2c1c4f5bb9, type: 2}
+  - {fileID: 11400000, guid: 23ffa5008af7b46409ee41b5d0d6e399, type: 2}
+  - {fileID: 11400000, guid: 9369f449b7a3a1746ba5d14460ba2727, type: 2}
+  - {fileID: 11400000, guid: 819fad8baf6ec154792d9f892f286204, type: 2}
+  - {fileID: 11400000, guid: 314d64ab86d33504198a3a061ae9c268, type: 2}
+  - {fileID: 11400000, guid: 4f4f39c5661db71429ea8d3cd55701b2, type: 2}
+  - {fileID: 11400000, guid: 1116a2cf2751cbc4c98f94e8de1a529b, type: 2}
+  - {fileID: 11400000, guid: a50f5213a6b18d0448ef0afcfcedbae9, type: 2}
+  - {fileID: 11400000, guid: 89cbaecd7301dc34b85bb9f4be9d2170, type: 2}
+  - {fileID: 11400000, guid: d0180782907eb9b41898ab7e22280f7a, type: 2}
+  level1EnemyCards:
+  - {fileID: 11400000, guid: 1eb5f694325d5c4408de679ae8c54514, type: 2}
+  - {fileID: 11400000, guid: a563051b4f9b9974c82aaaaa64e5ac7b, type: 2}
+  - {fileID: 11400000, guid: db48839505635d24aadf2bc08e302b28, type: 2}
+  - {fileID: 11400000, guid: bb775fb74469d8c498e49b4f50a975cd, type: 2}
+  - {fileID: 11400000, guid: 42bae4d8b317b5741bd5d62f859df50c, type: 2}
+  level2EnemyCards:
+  - {fileID: 11400000, guid: 9d1881ff1bc7ef842ab7c1f59c65aa12, type: 2}
+  - {fileID: 11400000, guid: e932f1a0e5a816645bd15f86af1e6482, type: 2}
+  - {fileID: 11400000, guid: dee3ceee92ac00b49aa58cf7dafa8747, type: 2}
+  - {fileID: 11400000, guid: 78c6782e3998cee4cb2fd13f428c6f5e, type: 2}
+  - {fileID: 11400000, guid: 75e3dda2aade39e42a843a6883c0cee0, type: 2}
+  - {fileID: 11400000, guid: 5a362760eb8c39d46b5c8df8baf8c401, type: 2}
+  level3EnemyCards:
+  - {fileID: 11400000, guid: 368a22454c4fc6948857f5d04ad36564, type: 2}
+  - {fileID: 11400000, guid: da689215d3989da4ab654d538f5073c1, type: 2}
+  - {fileID: 11400000, guid: 039d6328e7a190544b4803262852a97d, type: 2}
+  - {fileID: 11400000, guid: 3d5076c8cdac17b4fbf5dcdae6cc6903, type: 2}
+  - {fileID: 11400000, guid: 3ea009cf19fe471429818df3c4738c19, type: 2}
+  - {fileID: 11400000, guid: 133e80dd42a168a4c85d558dde731682, type: 2}
+  - {fileID: 11400000, guid: 82510f0fdca0f094181d4949ac3ccf4e, type: 2}
+  cardPrefab1: {fileID: 5499220350396112396, guid: 0ebb1326bd75d8f4ea6a1c159fd81282, type: 3}
+  cardPrefab2: {fileID: 5499220350396112396, guid: cb9443ecc03d7ac46b2b8e0061410126, type: 3}
+  cardPrefab3: {fileID: 6559608412310135780, guid: fb5ad826845d1354bbc7d54f4b8bc155, type: 3}
+  teenagerCardPrefab: {fileID: 2226798252212741354, guid: 2b264c19e2867894491fb7ab6b39afe2, type: 3}
+  policemanCardPrefab: {fileID: 7717573042065165405, guid: 76d45f1d9b5aee74f8e1c90f7db5d434, type: 3}
+  mayorCardPrefab: {fileID: 8012576846461833885, guid: c95c7d3716d67ef4e9acc56f400a3ed3, type: 3}
+  canvas: {fileID: 1471571563}
   isPlayable: 0
+  transition: {fileID: 0}
 --- !u!4 &799518129
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,6 +1806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913396728}
+  - component: {fileID: 913396729}
   m_Layer: 0
   m_Name: Playercard
   m_TagString: Untagged
@@ -1817,6 +1835,28 @@ RectTransform:
   m_AnchoredPosition: {x: -115, y: -355.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &913396729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913396727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc163c7b63b89048b18278316075f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  damageText: {fileID: 0}
+  strengthText: {fileID: 0}
+  healthText: {fileID: 0}
+  blackStrengthText: {fileID: 0}
+  cardImage: {fileID: 0}
+  cardFrontImage: {fileID: 0}
+  cardBackImage: {fileID: 0}
 --- !u!1 &937664049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &938003544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1927,9 +1967,9 @@ RectTransform:
   m_Father: {fileID: 225755763}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 267.72, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938003545
@@ -2008,7 +2048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &938241559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2024,9 +2064,9 @@ RectTransform:
   m_Father: {fileID: 1663079164}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 267.72, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938241560
@@ -2105,7 +2145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &949661039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2121,9 +2161,9 @@ RectTransform:
   m_Father: {fileID: 225755763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 158.86, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949661040
@@ -2777,42 +2817,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1225231922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1225231923}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1225231923
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225231922}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1663079164}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1285179540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,7 +3673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1663079164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3685,7 +3689,6 @@ RectTransform:
   - {fileID: 315098255}
   - {fileID: 1882192463}
   - {fileID: 938241559}
-  - {fileID: 1225231923}
   m_Father: {fileID: 1681820157}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3903,7 +3906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1780757128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3919,9 +3922,9 @@ RectTransform:
   m_Father: {fileID: 225755763}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780757129
@@ -4032,16 +4035,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7a813306187254d80c06dc69bd8b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level1Enemy: {fileID: 0}
-  level2Enemy: {fileID: 0}
-  level3Enemy: {fileID: 0}
-  strengthPoints:
+  level1Enemies:
+  - {fileID: 21300000, guid: 03749c92b1d2b9b489d746c66a17e1a5, type: 3}
+  - {fileID: 21300000, guid: d4243b4847025404a8580d085bee91ec, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  level2Enemies:
+  - {fileID: 21300000, guid: a9f12c7128f84f84a8e49221b245fb2a, type: 3}
+  - {fileID: 21300000, guid: 453fea55bfaa1f84baa32d7d8ba3a28c, type: 3}
+  level3Enemy: {fileID: 21300000, guid: b91f5e948f239674e95f8859c7af7990, type: 3}
+  enemyImage: {fileID: 111595013}
+  maxStrengthText: {fileID: 542609928}
+  strengthText: {fileID: 1015334386}
+  maxHealthText: {fileID: 654870976}
+  healthText: {fileID: 569384884}
+  dealAudio: {fileID: 0}
 --- !u!1 &1882192462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +4067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1882192463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4076,9 +4083,9 @@ RectTransform:
   m_Father: {fileID: 1663079164}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 158.86, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882192464

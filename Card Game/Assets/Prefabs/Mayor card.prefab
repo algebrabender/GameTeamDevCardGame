@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2940486658418240420}
   - component: {fileID: 664955714034093467}
+  - component: {fileID: 4955373217652666795}
   m_Layer: 0
   m_Name: Mayor card
   m_TagString: Untagged
@@ -201,6 +202,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4955373217652666795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012576846461833885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc163c7b63b89048b18278316075f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  titleText: {fileID: 9010077108632681608}
+  descriptionText: {fileID: 9010077109609090327}
+  damageText: {fileID: 9010077109204287200}
+  strengthText: {fileID: 9010077109330740904}
+  healthText: {fileID: 9010077108933397472}
+  blackStrengthText: {fileID: 4322590990207146584}
+  cardImage: {fileID: 9010077109616980603}
+  cardFrontImage: {fileID: 9010077109759232770}
+  cardBackImage: {fileID: 9010077109885956630}
 --- !u!1 &9010077108632681606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10cfef00f12a1514099975fb1aa88bb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c759b24cd56d5144a4c37b2280362c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1053,7 +1076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9010077109885956629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1102,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 038fdc1f8bdc3444b83bc23ed7ae8eba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a51a42dc6eae3743afc01279c2a19d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

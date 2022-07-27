@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5643615722619835271}
   - component: {fileID: 4266737273912390044}
+  - component: {fileID: 6501571440413186286}
   m_Layer: 0
   m_Name: Teenager card
   m_TagString: Untagged
@@ -201,6 +202,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6501571440413186286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226798252212741354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc163c7b63b89048b18278316075f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  titleText: {fileID: 5694276332939427983}
+  descriptionText: {fileID: 5694276333547942160}
+  damageText: {fileID: 5694276332370182887}
+  strengthText: {fileID: 5694276332232424111}
+  healthText: {fileID: 5694276332103645159}
+  blackStrengthText: {fileID: 716343755567851103}
+  cardImage: {fileID: 5694276333558828668}
+  cardFrontImage: {fileID: 5694276333937030917}
+  cardBackImage: {fileID: 5694276333824658961}
 --- !u!1 &5694276332103645177
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5694276333824658962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1071,7 +1094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 5}
+  m_AnchoredPosition: {x: 5.8886, y: 5}
   m_SizeDelta: {x: 86.5162, y: 115.4238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5694276333937030916

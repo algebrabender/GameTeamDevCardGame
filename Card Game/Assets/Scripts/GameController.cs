@@ -29,11 +29,16 @@ public class GameController : MonoBehaviour
     public List<CardData> level2EnemyCards = new List<CardData>();
     public List<CardData> level3EnemyCards = new List<CardData>();
 
-    public GameObject cardPrefab = null;
+    public GameObject cardPrefab1 = null;
+    public GameObject cardPrefab2 = null;
+    public GameObject cardPrefab3 = null;
+    public GameObject teenagerCardPrefab = null;
+    public GameObject policemanCardPrefab = null;
+    public GameObject mayorCardPrefab = null;
     public Canvas canvas = null;
 
     public bool isPlayable = false;
-    internal int lastPlayedLevel = 0; //level - 1
+    internal int lastPlayedLevel = 1; //level - 1
     private int enemiesPerLevelTakenOut = 0; 
 
     public Animator transition = null;
@@ -58,10 +63,10 @@ public class GameController : MonoBehaviour
 
         SetUpEnemy();
 
-        //playerDeck.Create();
-        //enemyDeck.Create();
+        playerDeck.Create();
+        enemyDeck.CreateEnemyDeck(lastPlayedLevel);
 
-        //StartCoroutine(DealHands());
+        StartCoroutine(DealHands());
     }
 
     #region Game Set Up
@@ -132,6 +137,7 @@ public class GameController : MonoBehaviour
                         enemy.enemyImage.sprite = enemy.level1Enemies[enemiesPerLevelTakenOut];
                         enemy.maxHealth = enemy.health = 2;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemyDeck.CreateEnemyDeck(lastPlayedLevel);
                     }
                     else
                     {
@@ -141,6 +147,7 @@ public class GameController : MonoBehaviour
                         enemy.enemyImage.sprite = enemy.level3Enemy;
                         enemy.maxHealth = enemy.health = 5;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemyDeck.CreateEnemyDeck(lastPlayedLevel);
                     }
                 }
                 break;
@@ -153,6 +160,7 @@ public class GameController : MonoBehaviour
                         enemy.enemyImage.sprite = enemy.level2Enemies[1];
                         enemy.maxHealth = enemy.health = 5;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemyDeck.CreateEnemyDeck(lastPlayedLevel);
                     }
                     else
                     {
@@ -162,6 +170,7 @@ public class GameController : MonoBehaviour
                         enemy.enemyImage.sprite = enemy.level3Enemy;
                         enemy.maxHealth = enemy.health = 15;
                         enemy.maxStrength = enemy.strength = 5;
+                        enemyDeck.CreateEnemyDeck(lastPlayedLevel);
                     }
                 }
                 break;

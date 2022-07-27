@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3869409028036474345}
   - component: {fileID: 2008212003662077573}
+  - component: {fileID: 9143362088364346928}
   m_Layer: 0
   m_Name: Police card
   m_TagString: Untagged
@@ -196,6 +197,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9143362088364346928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717573042065165405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc163c7b63b89048b18278316075f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  titleText: {fileID: 8065602764329693078}
+  descriptionText: {fileID: 8065602765290380809}
+  damageText: {fileID: 8065602764901035518}
+  strengthText: {fileID: 8065602765031986614}
+  healthText: {fileID: 8065602764634380542}
+  blackStrengthText: {fileID: 2961136567700392262}
+  cardImage: {fileID: 8065602765284663653}
+  cardFrontImage: {fileID: 8065602765478008860}
+  cardBackImage: {fileID: 8065602765550461192}
 --- !u!1 &8065602764329693080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2a3a4a64f75895144b0e0d3ecd23c602, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 887aefdba1bff4e4198c356fdf41049a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1048,7 +1071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8065602765550461195
 RectTransform:
   m_ObjectHideFlags: 0

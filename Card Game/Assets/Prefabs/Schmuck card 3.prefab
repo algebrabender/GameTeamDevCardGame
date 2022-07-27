@@ -920,6 +920,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6483407776492095024}
+  - component: {fileID: 2580641155059279128}
+  - component: {fileID: 1668183016109648758}
   m_Layer: 0
   m_Name: Schmuck card 3
   m_TagString: Untagged
@@ -950,3 +952,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2580641155059279128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559608412310135780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc163c7b63b89048b18278316075f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  titleText: {fileID: 3916385967860971178}
+  descriptionText: {fileID: 3916385968879322933}
+  damageText: {fileID: 3916385967425942722}
+  strengthText: {fileID: 3916385967560789130}
+  healthText: {fileID: 3916385967155052994}
+  blackStrengthText: {fileID: 3916385967560789130}
+  cardImage: {fileID: 3916385968887281753}
+  cardFrontImage: {fileID: 3916385968995909920}
+  cardBackImage: {fileID: 3916385969156257844}
+--- !u!95 &1668183016109648758
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559608412310135780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
