@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Deck
@@ -59,13 +61,16 @@ public class Deck
         }
     }
 
-    private CardData RandomCard()
+    private CardData RandomCard(bool isPlayer)
     {
         CardData result = null;
 
-        //TODO: this means end so needs to be changed
-        if (cardDatas.Count == 0)
-            Create();
+        if (isPlayer)
+        {
+            if (cardDatas.Count == 0)
+                GameController.instance.GameOverDueCards();
+        }
+        //TODO: what happens with enemy?
 
         result = cardDatas[0];
         cardDatas.RemoveAt(0);
@@ -73,7 +78,7 @@ public class Deck
         return result;
     }
 
-    private Card CreateNewCard(Vector3 position, string animName, GameObject prefab)
+    private Card CreateNewCard(Vector3 position, string animName, GameObject prefab, bool isPlayer)
     {
        GameObject newCard = GameObject.Instantiate(prefab, GameController.instance.canvas.gameObject.transform);
 
@@ -81,7 +86,7 @@ public class Deck
         Card card = newCard.GetComponent<Card>();
         if (card)
         {
-            card.cardData = RandomCard();
+            card.cardData = RandomCard(isPlayer);
             card.Initialize();
 
             Animator animator = newCard.GetComponentInChildren<Animator>();
@@ -133,7 +138,7 @@ public class Deck
                     }
                 }
 
-                hand.cards[h] = CreateNewCard(hand.positions[h].position, hand.animNames[h], prefab);
+                hand.cards[h] = CreateNewCard(hand.positions[h].position, hand.animNames[h], prefab, hand.isPlayers);
                 return;
             }
         }

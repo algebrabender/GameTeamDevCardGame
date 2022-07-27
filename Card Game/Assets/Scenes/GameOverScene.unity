@@ -855,6 +855,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 522539557}
+  backgroundImage: {fileID: 948228487}
+  lostLevelOne: {fileID: 21300000, guid: 60de1bec3dd768a4594d8e1be5e03a00, type: 3}
+  lostLevelTwoAndThree: {fileID: 0}
 --- !u!1 &2126642415
 GameObject:
   m_ObjectHideFlags: 0

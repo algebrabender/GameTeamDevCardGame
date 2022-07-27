@@ -5,18 +5,30 @@ using UnityEngine;
 using UnityEditor;
 #endif
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
     // taking reference for black image 
     public Animator transition;
 
-   
-    
-    
-    
-    
-    
+    public Image backgroundImage = null;
+    public Sprite lostLevelOne;
+    public Sprite lostLevelTwoAndThree;
+
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            if (GameController.instance.lastPlayedLevel == 0)
+                backgroundImage.sprite = lostLevelOne;
+            else
+                backgroundImage.sprite = lostLevelTwoAndThree;
+        }   
+    }
+
+
     // Function for start game when we hit play button
     public void PlayGame()
     {
@@ -42,7 +54,7 @@ public class SceneController : MonoBehaviour
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 2));
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 3));
       
     }
 

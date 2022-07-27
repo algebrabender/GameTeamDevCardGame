@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     public Canvas canvas = null;
 
     public bool isPlayable = false;
-    internal int lastPlayedLevel = 1; //level - 1
+    internal int lastPlayedLevel = 0; //level - 1
     private int enemiesPerLevelTakenOut = 0; 
 
     public Animator transition = null;
@@ -121,6 +121,14 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(UseEnemyCard(card));
 
+        enemy.strength += 1;
+
+        player.UpdateHealth();
+        player.UpdateStrength();
+
+        enemy.UpdateHealth();
+        enemy.UpdateStrength();
+
         isPlayable = true;
     }
 
@@ -182,6 +190,17 @@ public class GameController : MonoBehaviour
 
         enemy.UpdateMaxHealth();
         enemy.UpdateMaxStrength();
+    }
+
+    internal void CheckIfGameOver()
+    {
+        if (player.health <= 0 || player.strength <= 0)
+            StartCoroutine(GameOver());
+    }
+
+    internal void GameOverDueCards()
+    {
+        StartCoroutine(GameOver());
     }
 
     internal IEnumerator GameWin()
@@ -300,6 +319,8 @@ public class GameController : MonoBehaviour
         {
             isPlayable = false;
 
+            player.strength += 1;
+
             player.UpdateMaxHealth();
             player.UpdateHealth();
             player.UpdateMaxStrength();
@@ -322,7 +343,20 @@ public class GameController : MonoBehaviour
     {
         Card card = null;
 
-        switch(lastPlayedLevel)
+        List<Card> availableCards = new List<Card>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            //TODO: checking if the card is valid and adding in availableCards
+        }
+
+        if (availableCards.Count == 0)
+        {
+            return card;
+        }
+
+        //TODO: rules for playing for each enemy
+        switch (lastPlayedLevel)
         {
             case 0:
                 break;
@@ -348,7 +382,8 @@ public class GameController : MonoBehaviour
             //if any stat is 0 it wont have any effect and we take care of unneccesary ifs
             player.health -= card.cardData.damage;
             player.strength += card.cardData.blackStrength;
-            //TODO: check if gameover
+
+            CheckIfGameOver();
 
             enemy.health += card.cardData.health;
             enemy.strength += card.cardData.strength;
@@ -370,8 +405,11 @@ public class GameController : MonoBehaviour
 
     public void RestButton()
     {
-        //Strength +1
+        player.health += 1;
+        player.strength += 2;
 
+        player.UpdateHealth();
+        player.UpdateStrength();
     }
 
     public void Quit()
