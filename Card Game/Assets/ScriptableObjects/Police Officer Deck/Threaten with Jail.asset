@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Threaten with Jail
   m_EditorClassIdentifier: 
   cardTitle: Threaten with Jail
-  description: 
+  description: You could end up in jail!
   specialEffect: 
   damage: 2
   blackStrength: -2
