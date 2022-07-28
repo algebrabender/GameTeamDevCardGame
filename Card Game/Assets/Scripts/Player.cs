@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     public Image playerImage = null;
-    public Image glowImage = null;
+    public Image hitImage = null;
 
     public Text maxStrengthText = null;
     public Text strengthText = null;

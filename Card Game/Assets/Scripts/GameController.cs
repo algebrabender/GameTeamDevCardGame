@@ -131,6 +131,7 @@ public class GameController : MonoBehaviour
             enemy.UpdateHealth();
             enemy.UpdateStrength();
         }
+
         isPlayable = true;
     }
 
@@ -453,12 +454,14 @@ public class GameController : MonoBehaviour
 
         if (card != null)
         {
-            //TODO: card turning animation
             TurnCard(card);
 
             yield return new WaitForSeconds(1.5f);
 
             //if any stat is 0 it wont have any effect and we take care of unneccesary ifs
+            if (card.cardData.damage != 0 || card.cardData.blackStrength != 0)
+                player.hitImage.gameObject.SetActive(true);
+
             player.health -= card.cardData.damage;
             player.strength -= card.cardData.blackStrength;
 
@@ -470,6 +473,13 @@ public class GameController : MonoBehaviour
             enemysHand.RemoveCard(card);
 
             yield return new WaitForSeconds(0.5f);
+
+            player.hitImage.gameObject.SetActive(false);
+            player.UpdateHealth();
+            player.UpdateStrength();
+
+            enemy.UpdateHealth();
+            enemy.UpdateStrength();
         }
     }
 
@@ -478,7 +488,7 @@ public class GameController : MonoBehaviour
         Animator animator = card.GetComponentInChildren<Animator>();
 
         if (animator)
-            animator.SetTrigger("Flip");
+            animator.SetTrigger("Cardflip");
         else
             Debug.LogError("No animator found");
     }
@@ -490,7 +500,7 @@ public class GameController : MonoBehaviour
     public void RestButton()
     {
         player.health = player.health + 1 > player.maxHealth ? player.maxHealth : player.health + 1;
-        player.strength = player.strength + 2 > player.maxStrength ? player.maxStrength : player.strength + 2;
+        player.strength = player.strength + 1 > player.maxStrength ? player.maxStrength : player.strength + 1;
 
         player.UpdateHealth();
         player.UpdateStrength();

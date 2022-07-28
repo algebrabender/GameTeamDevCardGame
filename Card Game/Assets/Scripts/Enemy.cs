@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Sprite level3Enemy = null;
 
     public Image enemyImage = null;
+    public Image hitImage = null;
 
     public Text maxStrengthText = null;
     public Text strengthText = null;
