@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour, IDropHandler
+public class Player : MonoBehaviour
 {
     public Image playerImage = null;
-    public Image glowImage = null;
+    public Image hitImage = null;
 
     public Text maxStrengthText = null;
     public Text strengthText = null;
@@ -62,23 +62,5 @@ public class Player : MonoBehaviour, IDropHandler
     internal void PlayDealSound()
     {
         dealAudio.Play();
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (!GameController.instance.isPlayable)
-            return;
-
-        GameObject obj = eventData.pointerDrag;
-
-        if (obj != null)
-        {
-            Card card = obj.GetComponent<Card>();
-
-            if (card != null)
-            {
-                GameController.instance.UseCard(card);
-            }
-        }
     }
 }

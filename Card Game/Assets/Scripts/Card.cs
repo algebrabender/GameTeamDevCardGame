@@ -48,6 +48,8 @@ public class Card : MonoBehaviour
     {
         //TODO: play that card
         PointerEventData pData = (PointerEventData)data;
-        Debug.Log("try");
+        Debug.Log(this);
+
+        GameController.instance.UseCard(this);
     }
 }

@@ -39,7 +39,8 @@ public class GameController : MonoBehaviour
 
     public bool isPlayable = false;
     internal int lastPlayedLevel = 0; //level - 1
-    private int enemiesPerLevelTakenOut = 0; 
+    private int enemiesPerLevelTakenOut = 0;
+    private bool newEnemy = false;
 
     public Animator transition = null;
 
@@ -116,23 +117,25 @@ public class GameController : MonoBehaviour
     internal void EnemyTurn()
     {
         //TODO: check for plushie pausing turns
+        if (!newEnemy)
+        {
+            Card card = AIChooseCard();
 
-        Card card = AIChooseCard();
+            StartCoroutine(UseEnemyCard(card));
 
-        StartCoroutine(UseEnemyCard(card));
+            enemy.strength = enemy.strength + 1 > enemy.maxStrength ? enemy.maxStrength : enemy.strength + 1;
 
-        enemy.strength += 1;
+            player.UpdateHealth();
+            player.UpdateStrength();
 
-        player.UpdateHealth();
-        player.UpdateStrength();
-
-        enemy.UpdateHealth();
-        enemy.UpdateStrength();
+            enemy.UpdateHealth();
+            enemy.UpdateStrength();
+        }
 
         isPlayable = true;
     }
 
-    internal void CheckIfEnemyTakenOut()
+    internal IEnumerator CheckIfEnemyTakenOut()
     {
         switch (lastPlayedLevel)
         {
@@ -141,46 +144,83 @@ public class GameController : MonoBehaviour
                 {
                     if (enemiesPerLevelTakenOut < 2)
                     {
+                        newEnemy = true;
                         enemiesPerLevelTakenOut++;
                         enemy.enemyImage.sprite = enemy.level1Enemies[enemiesPerLevelTakenOut];
                         enemy.maxHealth = enemy.health = 2;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        for (int i = 0; i < 3; i++)
+                        {
+                            enemyDeck.DealCard(enemysHand);
+
+                            //yield return new WaitForSeconds(1.0f);
+                        }
+                        
                     }
                     else
                     {
+                        newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
-                        enemy.enemyImage.sprite = enemy.level3Enemy;
+                        enemy.enemyImage.sprite = enemy.level2Enemies[0];
                         enemy.maxHealth = enemy.health = 5;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        for (int i = 0; i < 3; i++)
+                        {
+                            enemyDeck.DealCard(enemysHand);
+
+                            //yield return new WaitForSeconds(1.0f);
+                        }
                     }
                 }
+                else
+                    newEnemy = false;
                 break;
             case 1:
                 if (enemy.health <= 0)
                 {
                     if (enemiesPerLevelTakenOut == 0)
                     {
+                        newEnemy = true;
                         enemiesPerLevelTakenOut++;
                         enemy.enemyImage.sprite = enemy.level2Enemies[1];
                         enemy.maxHealth = enemy.health = 5;
                         enemy.maxStrength = enemy.strength = 4;
+                        enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        for (int i = 0; i < 3; i++)
+                        {
+                            enemyDeck.DealCard(enemysHand);
+
+                            //yield return new WaitForSeconds(1.0f);
+                        }
                     }
                     else
                     {
+                        newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
                         enemy.enemyImage.sprite = enemy.level3Enemy;
                         enemy.maxHealth = enemy.health = 15;
                         enemy.maxStrength = enemy.strength = 5;
+                        enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        for (int i = 0; i < 3; i++)
+                        {
+                            enemyDeck.DealCard(enemysHand);
+
+                            //yield return new WaitForSeconds(1.0f);
+                        }
                     }
                 }
+                else
+                    newEnemy = false;
                 break;
             case 2:
                 if (enemy.health <= 0)
@@ -189,7 +229,11 @@ public class GameController : MonoBehaviour
         }
 
         enemy.UpdateMaxHealth();
+        enemy.UpdateHealth();
         enemy.UpdateMaxStrength();
+        enemy.UpdateStrength();
+
+        yield return new WaitForSeconds(1.0f);
     }
 
     internal void CheckIfGameOver()
@@ -205,7 +249,7 @@ public class GameController : MonoBehaviour
 
     internal IEnumerator GameWin()
     {
-        transition.SetTrigger("Start");
+        //transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
 
@@ -214,7 +258,7 @@ public class GameController : MonoBehaviour
 
     internal IEnumerator GameOver()
     {
-        transition.SetTrigger("Start");
+        //transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
 
@@ -260,10 +304,10 @@ public class GameController : MonoBehaviour
             {
                 if (player.strength + cardBeingPlayed.cardData.strength > 0)
                 {
-                    player.strength += cardBeingPlayed.cardData.strength;
+                    player.strength = player.strength + cardBeingPlayed.cardData.strength > player.maxStrength ? player.maxStrength : player.strength + cardBeingPlayed.cardData.strength;
                     
                     enemy.health -= cardBeingPlayed.cardData.damage;
-                    
+                    StartCoroutine(CheckIfEnemyTakenOut());
 
                     valid = true;
                 }
@@ -279,16 +323,16 @@ public class GameController : MonoBehaviour
                         valid = false;
                     else
                     {
-                        player.strength += cardBeingPlayed.cardData.strength;
-                        player.health += cardBeingPlayed.cardData.health;
-
                         //for cat it will just add 0 so basically not doing anything
                         //-> less if checks
                         player.maxStrength += cardBeingPlayed.cardData.maxStrenght;
                         player.maxHealth += cardBeingPlayed.cardData.maxHealth;
 
+                        player.strength = player.strength + cardBeingPlayed.cardData.strength > player.maxStrength ? player.maxStrength : player.strength + cardBeingPlayed.cardData.strength;
+                        player.health = player.health + cardBeingPlayed.cardData.health > player.maxHealth ? player.maxHealth : player.health + cardBeingPlayed.cardData.health;
+
                         enemy.health -= cardBeingPlayed.cardData.damage;
-                        CheckIfEnemyTakenOut();
+                        StartCoroutine(CheckIfEnemyTakenOut());
 
                         valid = true;
                     }
@@ -301,11 +345,13 @@ public class GameController : MonoBehaviour
                         {
                             //TODO: PAUSE ENEMY ATTACK
                         }
-                        player.strength += cardBeingPlayed.cardData.strength;
+
                         //adds for aid for rest is just + 0
-                        player.health += cardBeingPlayed.cardData.health;
                         //adds for tobacco for rest is just + 0
                         player.maxHealth += cardBeingPlayed.cardData.maxHealth;
+
+                        player.strength = player.strength + cardBeingPlayed.cardData.strength > player.maxStrength ? player.maxStrength : player.strength + cardBeingPlayed.cardData.strength;
+                        player.health = player.health + cardBeingPlayed.cardData.health > player.maxHealth ? player.maxHealth : player.health + cardBeingPlayed.cardData.health;
 
                         valid = true;
                     }
@@ -319,7 +365,7 @@ public class GameController : MonoBehaviour
         {
             isPlayable = false;
 
-            player.strength += 1;
+            player.strength = player.strength + 1 > player.maxStrength ? player.maxStrength : player.strength + 1;
 
             player.UpdateMaxHealth();
             player.UpdateHealth();
@@ -347,7 +393,8 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            //TODO: checking if the card is valid and adding in availableCards
+            if (enemysHand.cards[i].cardData.strength + enemy.strength > -1)
+                availableCards.Add(enemysHand.cards[i]);
         }
 
         if (availableCards.Count == 0)
@@ -355,14 +402,46 @@ public class GameController : MonoBehaviour
             return card;
         }
 
-        //TODO: rules for playing for each enemy
+        //rules for playing for each enemy
         switch (lastPlayedLevel)
         {
-            case 0:
+            case 0: //teenagers play any card
+                card = availableCards[UnityEngine.Random.Range(0, availableCards.Count)];
                 break;
-            case 1:
+            case 1: //police officer cards have ranking
+                for (int i = 0; i < availableCards.Count; i++)
+                {
+                    if (player.health - availableCards[i].cardData.damage <= 0)
+                        card = availableCards[i];
+                    else if (availableCards[i].cardData.cardTitle == "Fine for Causing Disturbance")
+                        card = availableCards[i];
+                    else if (availableCards[i].cardData.damage + availableCards[i].cardData.maxStrenght == 0)
+                        card = availableCards[i];
+                }
+                if (card == null)
+                    card = availableCards[UnityEngine.Random.Range(0, availableCards.Count)];
                 break;
-            case 2:
+            case 2: //mayor cards have ranking
+                for (int i = 0; i < availableCards.Count; i++)
+                {
+                    if (player.health - availableCards[i].cardData.damage <= 0)
+                        card = availableCards[i];
+                    else if (availableCards[i].cardData.cardTitle == "Propaganda II")
+                        card = availableCards[i];
+                    else if (availableCards[i].cardData.blackStrength == -2 || availableCards[i].cardData.damage == 4)
+                        card = availableCards[i];
+                }
+                if (card == null)
+                {
+                    card = availableCards[UnityEngine.Random.Range(0, availableCards.Count)];
+
+                    if (card.cardData.cardTitle == "First Aid" && enemy.health > enemy.maxHealth - 3
+                        && availableCards.Count > 1)
+                    {
+                        availableCards.Remove(card);
+                        card = availableCards[UnityEngine.Random.Range(0, availableCards.Count)];
+                    }
+                }
                 break;
         }
 
@@ -375,41 +454,59 @@ public class GameController : MonoBehaviour
 
         if (card != null)
         {
-            //TODO: card turning animation
+            TurnCard(card);
 
             yield return new WaitForSeconds(1.5f);
 
             //if any stat is 0 it wont have any effect and we take care of unneccesary ifs
+            if (card.cardData.damage != 0 || card.cardData.blackStrength != 0)
+                player.hitImage.gameObject.SetActive(true);
+
             player.health -= card.cardData.damage;
-            player.strength += card.cardData.blackStrength;
+            player.strength -= card.cardData.blackStrength;
 
             CheckIfGameOver();
 
-            enemy.health += card.cardData.health;
-            enemy.strength += card.cardData.strength;
+            enemy.health = enemy.health + card.cardData.health > enemy.maxHealth ? enemy.maxHealth : enemy.health + card.cardData.health;
+            enemy.strength = enemy.strength + card.cardData.strength > enemy.maxStrength ? enemy.maxStrength : enemy.strength + card.cardData.strength;
 
             enemysHand.RemoveCard(card);
 
             yield return new WaitForSeconds(0.5f);
+
+            player.hitImage.gameObject.SetActive(false);
+            player.UpdateHealth();
+            player.UpdateStrength();
+
+            enemy.UpdateHealth();
+            enemy.UpdateStrength();
         }
+    }
+
+    internal void TurnCard(Card card)
+    {
+        Animator animator = card.GetComponentInChildren<Animator>();
+
+        if (animator)
+            animator.SetTrigger("Cardflip");
+        else
+            Debug.LogError("No animator found");
     }
 
     #endregion
 
     #region UI Buttons
 
-    public void BurnCardButton()
-    {
-
-    }
-
     public void RestButton()
     {
-        player.health += 1;
-        player.strength += 2;
+        player.health = player.health + 1 > player.maxHealth ? player.maxHealth : player.health + 1;
+        player.strength = player.strength + 1 > player.maxStrength ? player.maxStrength : player.strength + 1;
 
         player.UpdateHealth();
         player.UpdateStrength();
+
+        isPlayable = false;
+        EnemyTurn();
     }
 
     public void Quit()
