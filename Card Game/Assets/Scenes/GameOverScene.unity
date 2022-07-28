@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoaderSlide
       objectReference: {fileID: 0}
+    - target: {fileID: 9213296788355378490, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -936,13 +940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 278, y: -345.49}
-  m_SizeDelta: {x: 301.5952, y: 152.154}
-=======
-  m_AnchoredPosition: {x: 296, y: -348.62}
-  m_SizeDelta: {x: 261.0767, y: 145.89}
->>>>>>> Stashed changes
+  m_AnchoredPosition: {x: 345, y: -364.39}
+  m_SizeDelta: {x: 186.0252, y: 114.3375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590924878
 MonoBehaviour:
@@ -1128,13 +1127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: -1330, y: -345.49}
-  m_SizeDelta: {x: 301.5952, y: 152.154}
-=======
-  m_AnchoredPosition: {x: -1335.8518, y: -348.6159}
-  m_SizeDelta: {x: 279.3219, y: 145.8884}
->>>>>>> Stashed changes
+  m_AnchoredPosition: {x: -1395.9875, y: -364.39127}
+  m_SizeDelta: {x: 186.0252, y: 114.3375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126642417
 MonoBehaviour:
