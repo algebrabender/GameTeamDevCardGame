@@ -82,7 +82,7 @@ public class SceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(15.0f);
 
-        AudioManager.instance.PlayWinScreenAudio();
+        //AudioManager.instance.PlayWinScreenAudio();
 
         backgroundImage.sprite = imageTwo;
 

@@ -29,12 +29,12 @@ public class AudioManager : MonoBehaviour
     {
         if (backgroundAudioSource == null || !backgroundAudioSource.isPlaying)
         {
-            backgroundAudioSource = AddAudio(backgroundAudioClip, false, true, 0.5f);
+            backgroundAudioSource = AddAudio(backgroundAudioClip, false, true, 0.25f);
             backgroundAudioSource.Play();
         }
 
-        winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.75f);
-        gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, true, 0.75f);
+        winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.5f);
+        gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, false, 0.5f);
         dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
     }
 
@@ -49,6 +49,7 @@ public class AudioManager : MonoBehaviour
     {
         backgroundAudioSource.Stop();
         gameoverScreenAudioSource.Play();
+        backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
     }
 
     public void PlayBackgroundAudio()

@@ -511,7 +511,7 @@ public class GameController : MonoBehaviour
         Animator animator = card.GetComponentInChildren<Animator>();
 
         if (animator)
-            animator.SetTrigger("Cardflip");
+            animator.SetTrigger("Flip");
         else
             Debug.LogError("No animator found");
     }

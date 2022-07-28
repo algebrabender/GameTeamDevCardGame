@@ -117,12 +117,12 @@ public class Deck
             {
                 if (hand.isPlayers)
                 {
-                    GameController.instance.player.PlayDealSound();
+                    //GameController.instance.player.PlayDealSound();
                     prefab = GameController.instance.cardPrefab1;
                 }
                 else
                 {
-                    GameController.instance.enemy.PlayDealSound();
+                    //GameController.instance.enemy.PlayDealSound();
                     switch (GameController.instance.lastPlayedLevel)
                     {
                         case 0:
