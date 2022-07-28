@@ -6,8 +6,9 @@ using UnityEditor;
 #endif
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+public class MainMenuScript : MonoBehaviour
 
-public class SceneController : MonoBehaviour
+
 {
     // taking reference for black image 
     public Animator transition;
@@ -25,7 +26,7 @@ public class SceneController : MonoBehaviour
                 backgroundImage.sprite = lostLevelOne;
             else
                 backgroundImage.sprite = lostLevelTwoAndThree;
-        }   
+        }
     }
 
 
@@ -33,7 +34,7 @@ public class SceneController : MonoBehaviour
     public void PlayGame()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        
+
 
     }
 
@@ -49,20 +50,19 @@ public class SceneController : MonoBehaviour
     }
 
 
-    
-    
+
+
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
-        //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
-      
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
+
     }
 
 
-    
-    
-    
+
+
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
@@ -74,7 +74,6 @@ public class SceneController : MonoBehaviour
     }
 
 
-   
+
 
 }
-

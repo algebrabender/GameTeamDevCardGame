@@ -400,6 +400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 694321331}
+  backgroundImage: {fileID: 0}
+  lostLevelOne: {fileID: 0}
+  lostLevelTwoAndThree: {fileID: 0}
 --- !u!4 &1289788532
 Transform:
   m_ObjectHideFlags: 0
@@ -757,7 +760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 524, y: -269.44}
+  m_AnchoredPosition: {x: 524, y: -243}
   m_SizeDelta: {x: 378, y: 204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991860877

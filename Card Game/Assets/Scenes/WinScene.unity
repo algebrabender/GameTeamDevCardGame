@@ -1073,3 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a3fe4513f4e3b419ba5e980dc564c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  lostLevelOne: {fileID: 0}
+  lostLevelTwoAndThree: {fileID: 0}
