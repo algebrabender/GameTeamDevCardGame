@@ -589,7 +589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 524, y: -118.44}
+  m_AnchoredPosition: {x: 526, y: -118.38}
   m_SizeDelta: {x: 1313.916, y: 843.1257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1495784722
@@ -797,8 +797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1293, y: -319.56}
-  m_SizeDelta: {x: 378, y: 204}
+  m_AnchoredPosition: {x: 278, y: -345.49}
+  m_SizeDelta: {x: 301.5952, y: 152.154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590924878
 MonoBehaviour:
@@ -943,6 +943,11 @@ MonoBehaviour:
   backgroundImage: {fileID: 948228487}
   lostLevelOne: {fileID: 21300000, guid: 60de1bec3dd768a4594d8e1be5e03a00, type: 3}
   lostLevelTwoAndThree: {fileID: 21300000, guid: a2955aa0c329f1b418b5ede97459f2d1, type: 3}
+  imageOne: {fileID: 0}
+  imageTwo: {fileID: 0}
+  newGameButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  gameWinText: {fileID: 0}
 --- !u!1 &2126642415
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,8 +984,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247, y: -319.56}
-  m_SizeDelta: {x: 370.4094, y: 204}
+  m_AnchoredPosition: {x: -1330, y: -345.49}
+  m_SizeDelta: {x: 301.5952, y: 152.154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126642417
 MonoBehaviour:
