@@ -23,8 +23,6 @@ public class Enemy : MonoBehaviour
     internal int maxStrength;
     internal int strength; //current health
 
-    public AudioSource dealAudio = null;
-
     private Animator animator = null;
 
     void Start()
@@ -65,6 +63,6 @@ public class Enemy : MonoBehaviour
 
     internal void PlayDealSound()
     {
-        dealAudio.Play();
+        AudioManager.instance.PlayDealAudio();
     }
 }

@@ -27,6 +27,8 @@ public class SceneController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
+            AudioManager.instance.PlayGameOverAudio();
+
             if (GameController.instance.lastPlayedLevel == 0)
                 backgroundImage.sprite = lostLevelOne;
             else
@@ -79,6 +81,8 @@ public class SceneController : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(15.0f);
+
+        AudioManager.instance.PlayWinScreenAudio();
 
         backgroundImage.sprite = imageTwo;
 

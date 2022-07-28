@@ -19,8 +19,6 @@ public class Player : MonoBehaviour
     internal int maxStrength = 6;
     internal int strength = 4; //current strength
 
-    public AudioSource dealAudio = null;
-
     private Animator animator = null;
 
     void Start()
@@ -61,6 +59,6 @@ public class Player : MonoBehaviour
 
     internal void PlayDealSound()
     {
-        dealAudio.Play();
+        AudioManager.instance.PlayDealAudio();
     }
 }
