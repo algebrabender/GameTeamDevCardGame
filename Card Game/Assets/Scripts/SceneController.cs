@@ -54,7 +54,7 @@ public class SceneController : MonoBehaviour
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
       
     }
