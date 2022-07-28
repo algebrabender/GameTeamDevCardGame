@@ -260,6 +260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundAudioClip: {fileID: 8300000, guid: d631474a4a97552489f3935283593deb, type: 3}
+  winScreenAudioClip: {fileID: 8300000, guid: 36c0ded01332b1b4cb2acbf1d6fe4791, type: 3}
+  gameoverScreenAudioClip: {fileID: 8300000, guid: 994f4d8358b42a140a667a8d36dbaa56, type: 3}
+  dealAudioClip: {fileID: 8300000, guid: 3dd64e7876b3ecd489560c4188ee91cd, type: 3}
 --- !u!4 &298915593
 Transform:
   m_ObjectHideFlags: 0
