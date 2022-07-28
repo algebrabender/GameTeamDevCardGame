@@ -321,11 +321,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &901772634 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
-  m_PrefabInstance: {fileID: 2067826116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &956998883 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9213296788634445378, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
@@ -477,6 +472,7 @@ GameObject:
   - component: {fileID: 1393867887}
   - component: {fileID: 1393867886}
   - component: {fileID: 1393867890}
+  - component: {fileID: 1393867891}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -560,7 +556,7 @@ RectTransform:
   - {fileID: 1683821387}
   - {fileID: 1441243917}
   - {fileID: 1160349555}
-  - {fileID: 901772634}
+  - {fileID: 2067826117}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -589,6 +585,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1393867891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393867885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf281a21b89d5d4a9cd7752687ca71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441243916
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,10 +669,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "I'm Dr. Shmuck a crazy old man, who had spent all of my youth trying to
-    build a plan, on how to subjugate people in the world. Unfortunately, all my
-    attempts systematically failed in vain. I've been living to my ages, without
-    fulfilling my dream. But one day, I finally, woke up with a strong intention
-    \u2013 the time to subjugate people in the city has come"
+    build a plan, on how to subjugate people in the city. Unfortunately, all my attempts
+    systematically failed in vain. I've been living to my ages, without fulfilling
+    my dream. But one day, I finally, woke up with a strong intention \u2013 the
+    time to subjugate people in the city has come"
 --- !u!222 &1441243919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -673,6 +681,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441243916}
   m_CullTransparentMesh: 1
+--- !u!1 &1518039184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518039186}
+  - component: {fileID: 1518039185}
+  m_Layer: 0
+  m_Name: DelayLoaderBGS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1518039185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518039184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf281a21b89d5d4a9cd7752687ca71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1518039186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518039184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683821386
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,27 +818,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7359855
+      value: 1.7359852
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7359855
+      value: 1.7359852
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.7359855
+      value: 1.7359852
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.788765
+      value: 67.78881
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 181.43922
+      value: 181.43921
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2161498
+      value: -2.216149
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -826,27 +878,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 1920.0001
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 1079.8801
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.57604164
+      value: 0.5760417
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.57604164
+      value: 0.5760417
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.57604164
+      value: 0.5760417
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2765945
+      value: 1.2765944
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_LocalRotation.x
@@ -862,11 +914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -39.049133
+      value: -39.049187
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788634445406, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -104.51657
+      value: -104.516556
       objectReference: {fileID: 0}
     - target: {fileID: 9213296788708275179, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
       propertyPath: m_Alpha
@@ -882,3 +934,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
+--- !u!4 &2067826117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9213296788355378493, guid: eb9a4a73ff8c18c41bf7766a432873de, type: 3}
+  m_PrefabInstance: {fileID: 2067826116}
+  m_PrefabAsset: {fileID: 0}
