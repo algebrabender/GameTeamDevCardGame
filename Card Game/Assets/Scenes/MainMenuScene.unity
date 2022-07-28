@@ -403,6 +403,11 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   lostLevelOne: {fileID: 0}
   lostLevelTwoAndThree: {fileID: 0}
+  imageOne: {fileID: 0}
+  imageTwo: {fileID: 0}
+  newGameButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  gameWinText: {fileID: 0}
 --- !u!4 &1289788532
 Transform:
   m_ObjectHideFlags: 0
@@ -946,11 +951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848242359432371269, guid: f30c0c4703dad2c4da222699c7eb8d58, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 881.35864
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3848242359432371269, guid: f30c0c4703dad2c4da222699c7eb8d58, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 495.70923
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3848242359432371269, guid: f30c0c4703dad2c4da222699c7eb8d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
