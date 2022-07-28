@@ -121,6 +121,8 @@ public class GameController : MonoBehaviour
         {
             Card card = AIChooseCard();
 
+            Debug.Log(card.cardData.cardTitle);
+
             StartCoroutine(UseEnemyCard(card));
 
             enemy.strength = enemy.strength + 1 > enemy.maxStrength ? enemy.maxStrength : enemy.strength + 1;
@@ -131,8 +133,8 @@ public class GameController : MonoBehaviour
             enemy.UpdateHealth();
             enemy.UpdateStrength();
         }
-
-        isPlayable = true;
+        else
+            isPlayable = true;
     }
 
     internal IEnumerator CheckIfEnemyTakenOut()
@@ -144,6 +146,7 @@ public class GameController : MonoBehaviour
                 {
                     if (enemiesPerLevelTakenOut < 2)
                     {
+                        enemy.hitImage.gameObject.SetActive(false);
                         newEnemy = true;
                         enemiesPerLevelTakenOut++;
                         enemy.enemyImage.sprite = enemy.level1Enemies[enemiesPerLevelTakenOut];
@@ -156,11 +159,11 @@ public class GameController : MonoBehaviour
                             enemyDeck.DealCard(enemysHand);
 
                             //yield return new WaitForSeconds(1.0f);
-                        }
-                        
+                        }   
                     }
                     else
                     {
+                        enemy.hitImage.gameObject.SetActive(false);
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
@@ -186,6 +189,7 @@ public class GameController : MonoBehaviour
                 {
                     if (enemiesPerLevelTakenOut == 0)
                     {
+                        enemy.hitImage.gameObject.SetActive(false);
                         newEnemy = true;
                         enemiesPerLevelTakenOut++;
                         enemy.enemyImage.sprite = enemy.level2Enemies[1];
@@ -202,6 +206,7 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
+                        enemy.hitImage.gameObject.SetActive(false);
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
@@ -232,6 +237,10 @@ public class GameController : MonoBehaviour
         enemy.UpdateHealth();
         enemy.UpdateMaxStrength();
         enemy.UpdateStrength();
+
+        yield return new WaitForSeconds(1.0f);
+
+        enemy.hitImage.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(1.0f);
     }
@@ -271,6 +280,9 @@ public class GameController : MonoBehaviour
 
     internal bool UseCard(Card cardBeingPlayed)
     {
+        if (!isPlayable)
+            return false;
+
         bool valid;
 
         if (cardBeingPlayed == null)
@@ -307,6 +319,9 @@ public class GameController : MonoBehaviour
                     player.strength = player.strength + cardBeingPlayed.cardData.strength > player.maxStrength ? player.maxStrength : player.strength + cardBeingPlayed.cardData.strength;
                     
                     enemy.health -= cardBeingPlayed.cardData.damage;
+
+                    enemy.hitImage.gameObject.SetActive(true);
+
                     StartCoroutine(CheckIfEnemyTakenOut());
 
                     valid = true;
@@ -332,6 +347,10 @@ public class GameController : MonoBehaviour
                         player.health = player.health + cardBeingPlayed.cardData.health > player.maxHealth ? player.maxHealth : player.health + cardBeingPlayed.cardData.health;
 
                         enemy.health -= cardBeingPlayed.cardData.damage;
+
+                        if (cardBeingPlayed.cardData.cardTitle == "Pack of Cats")
+                            enemy.hitImage.gameObject.SetActive(true);
+
                         StartCoroutine(CheckIfEnemyTakenOut());
 
                         valid = true;
@@ -454,6 +473,8 @@ public class GameController : MonoBehaviour
 
         if (card != null)
         {
+            isPlayable = false;
+
             TurnCard(card);
 
             yield return new WaitForSeconds(1.5f);
@@ -480,6 +501,8 @@ public class GameController : MonoBehaviour
 
             enemy.UpdateHealth();
             enemy.UpdateStrength();
+
+            isPlayable = true;
         }
     }
 
@@ -499,6 +522,9 @@ public class GameController : MonoBehaviour
 
     public void RestButton()
     {
+        if (!isPlayable)
+            return;
+
         player.health = player.health + 1 > player.maxHealth ? player.maxHealth : player.health + 1;
         player.strength = player.strength + 1 > player.maxStrength ? player.maxStrength : player.strength + 1;
 

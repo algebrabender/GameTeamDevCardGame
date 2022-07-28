@@ -46,9 +46,8 @@ public class Card : MonoBehaviour
 
     public void OnClick(BaseEventData data)
     {
-        //TODO: play that card
-        PointerEventData pData = (PointerEventData)data;
-        Debug.Log(this);
+        //PointerEventData pData = (PointerEventData)data;
+        //Debug.Log(this);
 
         GameController.instance.UseCard(this);
     }

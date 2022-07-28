@@ -9,6 +9,11 @@ public class SkipCutsceneScript : MonoBehaviour
 
     public float transitionTime = 2f;
 
+    void Start()
+    {
+        StartCoroutine(Delay());
+    }
+
     public void SkipSceneFunction()
     {
         LoadNextLevel();
@@ -29,6 +34,14 @@ public class SkipCutsceneScript : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
-    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(15.0f);
 
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
