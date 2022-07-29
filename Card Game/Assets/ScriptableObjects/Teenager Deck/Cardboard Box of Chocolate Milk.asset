@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610504dd88a42a4409d776273bd84109, type: 3}
   m_Name: Cardboard Box of Chocolate Milk
   m_EditorClassIdentifier: 
-  cardTitle: Cardboard Box of Chocolate Milk
+  cardTitle: Choco Milk Box
   description: An obvious message
   specialEffect: 
   damage: 1

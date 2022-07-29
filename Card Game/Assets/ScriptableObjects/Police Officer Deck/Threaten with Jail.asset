@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610504dd88a42a4409d776273bd84109, type: 3}
   m_Name: Threaten with Jail
   m_EditorClassIdentifier: 
-  cardTitle: Threaten with Jail
+  cardTitle: Jail Warning
   description: You could end up in jail!
   specialEffect: 
   damage: 2

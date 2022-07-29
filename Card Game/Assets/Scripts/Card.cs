@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
         }
 
         titleText.text = cardData.cardTitle;
-        descriptionText.text = cardData.description;
+        descriptionText.text = cardData.description + "\n" + cardData.specialEffect;
         healthText.text = cardData.health.ToString();
         damageText.text = cardData.damage.ToString();
         blackStrengthText.text = cardData.blackStrength.ToString();
