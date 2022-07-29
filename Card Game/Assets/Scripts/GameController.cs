@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     internal int lastPlayedLevel = 0; //level - 1
     private int enemiesPerLevelTakenOut = 0;
     private bool newEnemy = false;
+    private int enemyTurnPausedFor = 0;
 
     public Animator transition = null;
 
@@ -116,12 +117,19 @@ public class GameController : MonoBehaviour
 
     internal void EnemyTurn()
     {
-        //TODO: check for plushie pausing turns
+        if (enemyTurnPausedFor > 0)
+        {
+            enemyTurnPausedFor--;
+            isPlayable = true;
+            return;
+        }
+
         if (!newEnemy)
         {
             Card card = AIChooseCard();
 
-            Debug.Log(card.cardData.cardTitle);
+            if (card != null)
+                Debug.Log(card.cardData.cardTitle);
 
             StartCoroutine(UseEnemyCard(card));
 
@@ -154,10 +162,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }   
                     }
@@ -173,10 +182,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -197,10 +207,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -216,10 +227,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 5;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -362,7 +374,7 @@ public class GameController : MonoBehaviour
                     {
                         if (cardBeingPlayed.cardData.cardTitle == "Ticking Plushie")
                         {
-                            //TODO: PAUSE ENEMY ATTACK
+                            enemyTurnPausedFor = 2;
                         }
 
                         //adds for aid for rest is just + 0
@@ -475,7 +487,7 @@ public class GameController : MonoBehaviour
         {
             isPlayable = false;
 
-            TurnCard(card);
+            //TurnCard(card);
 
             yield return new WaitForSeconds(1.5f);
 

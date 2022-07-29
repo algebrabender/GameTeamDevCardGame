@@ -21,6 +21,7 @@ public class BlackLoaderSlideScript : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
         StartCoroutine(LoadLvl(SceneManager.GetActiveScene().buildIndex + 1));
     }
 

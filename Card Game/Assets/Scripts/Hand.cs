@@ -29,12 +29,24 @@ public class Hand
         
     }
 
-    internal void ClearHand()
+    internal void ClearHand(bool afterEnemy = false)
     {
-        for(int i = 0; i < 3; i++)
+        if (!afterEnemy)
         {
-            GameObject.Destroy(cards[i].gameObject);
-            cards[i] = null;
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject.Destroy(cards[i].gameObject);
+                cards[i] = null;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameController.instance.playerDeck.TakeBackCard(cards[i]);
+                GameObject.Destroy(cards[i].gameObject);
+                cards[i] = null;
+            }
         }
     }
 }
