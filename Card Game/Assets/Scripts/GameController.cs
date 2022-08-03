@@ -48,6 +48,9 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        lastPlayedLevel = PlayerPrefs.GetInt("lastPlayedLevel", 0);
+
         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
 
         switch (lastPlayedLevel)
@@ -176,6 +179,8 @@ public class GameController : MonoBehaviour
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
+                        PlayerPrefs.SetInt("lastPlayedLevel", lastPlayedLevel);
+                        PlayerPrefs.Save();
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
                         enemy.enemyImage.sprite = enemy.level2Enemies[0];
                         enemy.maxHealth = enemy.health = 5;
@@ -221,6 +226,8 @@ public class GameController : MonoBehaviour
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
+                        PlayerPrefs.SetInt("lastPlayedLevel", lastPlayedLevel);
+                        PlayerPrefs.Save();
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
                         enemy.enemyImage.sprite = enemy.level3Enemy;
                         enemy.maxHealth = enemy.health = 15;
@@ -549,6 +556,9 @@ public class GameController : MonoBehaviour
 
     public void Quit()
     {
+        PlayerPrefs.SetInt("lastPlayedLevel", 0);
+        PlayerPrefs.Save();
+
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
         #else
