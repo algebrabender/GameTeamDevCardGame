@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-public class ProgressBar : MonoBehaviour
-{
 
+public class TestLoadingBarScript : MonoBehaviour
+{
     private Slider slider;
-    public float fillSpead = 0.35f;
+
+    public float FillSpeed = 0.5f;
     private float targetProgress = 0;
 
     private void Awake()
@@ -17,22 +17,18 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IncrementProgress(0.9f);
+        IncrementProgress(1f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (slider.value < targetProgress)
-        {
-            slider.value += fillSpead * Time.deltaTime;
-        }
+            slider.value += FillSpeed * Time.deltaTime;
     }
-
 
     public void IncrementProgress(float newProgress)
     {
-        targetProgress = slider.value + newProgress;
+        targetProgress  = slider.value + newProgress;
     }
-
 }
