@@ -41,12 +41,16 @@ public class GameController : MonoBehaviour
     internal int lastPlayedLevel = 0; //level - 1
     private int enemiesPerLevelTakenOut = 0;
     private bool newEnemy = false;
+    private int enemyTurnPausedFor = 0;
 
     public Animator transition = null;
 
     void Awake()
     {
         instance = this;
+
+        lastPlayedLevel = PlayerPrefs.GetInt("lastPlayedLevel", 0);
+
         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
 
         switch (lastPlayedLevel)
@@ -116,12 +120,19 @@ public class GameController : MonoBehaviour
 
     internal void EnemyTurn()
     {
-        //TODO: check for plushie pausing turns
+        if (enemyTurnPausedFor > 0)
+        {
+            enemyTurnPausedFor--;
+            isPlayable = true;
+            return;
+        }
+
         if (!newEnemy)
         {
             Card card = AIChooseCard();
 
-            Debug.Log(card.cardData.cardTitle);
+            if (card != null)
+                Debug.Log(card.cardData.cardTitle);
 
             StartCoroutine(UseEnemyCard(card));
 
@@ -154,10 +165,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }   
                     }
@@ -167,16 +179,19 @@ public class GameController : MonoBehaviour
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
+                        PlayerPrefs.SetInt("lastPlayedLevel", lastPlayedLevel);
+                        PlayerPrefs.Save();
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
                         enemy.enemyImage.sprite = enemy.level2Enemies[0];
                         enemy.maxHealth = enemy.health = 5;
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -197,10 +212,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -210,16 +226,19 @@ public class GameController : MonoBehaviour
                         newEnemy = true;
                         enemiesPerLevelTakenOut = 0;
                         lastPlayedLevel++;
+                        PlayerPrefs.SetInt("lastPlayedLevel", lastPlayedLevel);
+                        PlayerPrefs.Save();
                         backgroundImage.sprite = levelBackgrounds[lastPlayedLevel];
                         enemy.enemyImage.sprite = enemy.level3Enemy;
                         enemy.maxHealth = enemy.health = 15;
                         enemy.maxStrength = enemy.strength = 5;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
+                        playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-
+                            playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -362,7 +381,7 @@ public class GameController : MonoBehaviour
                     {
                         if (cardBeingPlayed.cardData.cardTitle == "Ticking Plushie")
                         {
-                            //TODO: PAUSE ENEMY ATTACK
+                            enemyTurnPausedFor = 2;
                         }
 
                         //adds for aid for rest is just + 0
@@ -475,7 +494,7 @@ public class GameController : MonoBehaviour
         {
             isPlayable = false;
 
-            TurnCard(card);
+            //TurnCard(card);
 
             yield return new WaitForSeconds(1.5f);
 
@@ -511,7 +530,7 @@ public class GameController : MonoBehaviour
         Animator animator = card.GetComponentInChildren<Animator>();
 
         if (animator)
-            animator.SetTrigger("Cardflip");
+            animator.SetTrigger("Flip");
         else
             Debug.LogError("No animator found");
     }
@@ -537,6 +556,9 @@ public class GameController : MonoBehaviour
 
     public void Quit()
     {
+        PlayerPrefs.SetInt("lastPlayedLevel", 0);
+        PlayerPrefs.Save();
+
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
         #else

@@ -65,12 +65,21 @@ public class Deck
     {
         CardData result = null;
 
-        if (isPlayer)
+        if (cardDatas.Count == 0)
         {
-            if (cardDatas.Count == 0)
+            if (isPlayer)
+            {
+                for (int i = 0; i < 3; i++)
+                    if (GameController.instance.playersHand.cards[i] != null)
+                        return result;
+
                 GameController.instance.GameOverDueCards();
+            }
+            else
+            {
+                CreateEnemyDeck(GameController.instance.lastPlayedLevel);
+            }
         }
-        //TODO: what happens with enemy?
 
         result = cardDatas[0];
         cardDatas.RemoveAt(0);
@@ -142,5 +151,11 @@ public class Deck
                 return;
             }
         }
+    }
+
+    internal void TakeBackCard(Card card)
+    {
+        int randomIndex = Random.Range(0, cardDatas.Count);
+        cardDatas.Insert(randomIndex, card.cardData);
     }
 }
