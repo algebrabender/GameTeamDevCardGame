@@ -10,7 +10,7 @@ public class LoadingBarScript : MonoBehaviour
     private Slider slider;
 
     private float targetProgress = 0;
-    private float FillSpeed = 0.5f;
+    private float FillSpeed = 0.3f;
 
     public Animator transition;
     public float transitionTime = 2f;
@@ -42,7 +42,6 @@ public class LoadingBarScript : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        //it doesn't work for now, I dntkn why
         StartCoroutine(LoadLvl(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
