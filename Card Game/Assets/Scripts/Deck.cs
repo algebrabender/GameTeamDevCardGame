@@ -65,6 +65,7 @@ public class Deck
     {
         CardData result = null;
 
+        //empty deck
         if (cardDatas.Count == 0)
         {
             if (isPlayer)
@@ -77,6 +78,9 @@ public class Deck
             }
             else
             {
+                GameController.instance.messageText.text = "You are taking your time! Seems like you are struggling...";
+                GameController.instance.enemy.maxHealth += 1;
+                GameController.instance.enemy.maxStrength += 1;
                 CreateEnemyDeck(GameController.instance.lastPlayedLevel);
             }
         }
