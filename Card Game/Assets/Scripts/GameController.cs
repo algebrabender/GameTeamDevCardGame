@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public List<Sprite> levelBackgrounds = new List<Sprite>(3);
     public Image backgroundImage = null;
 
+    public Text messageText = null;
+
     public Deck playerDeck = new Deck();
     public Deck enemyDeck = new Deck();
 
@@ -120,6 +122,8 @@ public class GameController : MonoBehaviour
 
     internal void EnemyTurn()
     {
+        messageText.text = "";
+
         if (enemyTurnPausedFor > 0)
         {
             enemyTurnPausedFor--;
@@ -299,6 +303,8 @@ public class GameController : MonoBehaviour
 
     internal bool UseCard(Card cardBeingPlayed)
     {
+        messageText.text = "";
+
         if (!isPlayable)
             return false;
 
@@ -415,7 +421,20 @@ public class GameController : MonoBehaviour
 
             playersHand.RemoveCard(cardBeingPlayed);
 
+            //THIS CLEARS HAND AFTER EVERY PLAYED CARD
+            playersHand.ClearHand(true);
+            for (int i = 0; i < 3; i++)
+            {
+                playerDeck.DealCard(playersHand);
+            }
+            //IF NOT NEEDED JUST BETWEEN THIS COMMENT NEEDS TO BE DELETED
+
+
             EnemyTurn();
+        }
+        else
+        {
+            messageText.text = "You're too weak for this card right now!";
         }
 
         //if we have some animations they can go here
