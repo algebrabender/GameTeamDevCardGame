@@ -28,7 +28,7 @@ public class SceneController : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             AudioManager.instance.PlayGameOverAudio();
-
+            
             if (GameController.instance.lastPlayedLevel == 0)
                 backgroundImage.sprite = lostLevelOne;
             else

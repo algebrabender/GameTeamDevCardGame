@@ -513,9 +513,9 @@ public class GameController : MonoBehaviour
         {
             isPlayable = false;
 
-            //TurnCard(card);
+            TurnCard(card);
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2.0f);
 
             //if any stat is 0 it wont have any effect and we take care of unneccesary ifs
             if (card.cardData.damage != 0 || card.cardData.blackStrength != 0)
@@ -528,6 +528,8 @@ public class GameController : MonoBehaviour
 
             enemy.health = enemy.health + card.cardData.health > enemy.maxHealth ? enemy.maxHealth : enemy.health + card.cardData.health;
             enemy.strength = enemy.strength + card.cardData.strength > enemy.maxStrength ? enemy.maxStrength : enemy.strength + card.cardData.strength;
+
+            yield return new WaitForSeconds(0.5f);
 
             enemysHand.RemoveCard(card);
 
