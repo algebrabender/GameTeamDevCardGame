@@ -11,13 +11,13 @@ public class BlackLoaderSlideScript : MonoBehaviour
 
     public float transitionTime = 2f;
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetMouseButton(0))
         {
             LoadNextLevel();
         }
-    }
+    }*/
 
     public void LoadNextLevel()
     {

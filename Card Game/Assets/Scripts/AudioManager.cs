@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -39,6 +38,7 @@ public class AudioManager : MonoBehaviour
         winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.5f);
         gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, false, 0.5f);
         dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
+
     }
 
     public void PlayWinScreenAudio()
@@ -74,6 +74,35 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
         return audioSource;
     }
+}
+
+    
+   /* //-------------------------------------------------------
+    public  Sprite soundsOnImage;
+    public Sprite soundsOFFImage;
+    public Button ClickedButton;
+    public bool isON = true;
+   
+    // Start is called before the first frame update
+
+
+    public void ButtonClicked()
+    {
+        if (isON)
+        {
+            ClickedButton.image.sprite = soundsOFFImage;
+            isON = false;
+            backgroundAudioSource.Pause();
+        }
+        else
+        {
+            ClickedButton.image.sprite = soundsOnImage;
+            isON = true;
+            backgroundAudioSource.Play();
+        }
+
+    }
 
 }
 
+*/
