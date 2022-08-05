@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip dealAudioClip;
     public static AudioSource dealAudioSource;
+
+    public Button button;
 
     void Awake()
     {
@@ -71,4 +74,6 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
         return audioSource;
     }
+
 }
+
