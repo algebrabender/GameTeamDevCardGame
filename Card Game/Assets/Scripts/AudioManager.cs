@@ -75,34 +75,4 @@ public class AudioManager : MonoBehaviour
         return audioSource;
     }
 }
-
-    
-   /* //-------------------------------------------------------
-    public  Sprite soundsOnImage;
-    public Sprite soundsOFFImage;
-    public Button ClickedButton;
-    public bool isON = true;
-   
-    // Start is called before the first frame update
-
-
-    public void ButtonClicked()
-    {
-        if (isON)
-        {
-            ClickedButton.image.sprite = soundsOFFImage;
-            isON = false;
-            backgroundAudioSource.Pause();
-        }
-        else
-        {
-            ClickedButton.image.sprite = soundsOnImage;
-            isON = true;
-            backgroundAudioSource.Play();
-        }
-
-    }
-
-}
-
-*/
+      

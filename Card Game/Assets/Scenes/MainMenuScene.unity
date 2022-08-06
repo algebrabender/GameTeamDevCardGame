@@ -356,7 +356,6 @@ GameObject:
   - component: {fileID: 467552831}
   - component: {fileID: 467552834}
   - component: {fileID: 467552833}
-  - component: {fileID: 467552835}
   - component: {fileID: 467552832}
   m_Layer: 5
   m_Name: MusicButton
@@ -382,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 785.02106, y: -273.85556}
+  m_AnchoredPosition: {x: 818, y: -237}
   m_SizeDelta: {x: 125.117, y: 113.937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467552832
@@ -428,19 +427,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 467552833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &467552833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,27 +466,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467552830}
   m_CullTransparentMesh: 1
---- !u!114 &467552835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467552830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3010c13f501cb64598f4fc46830462f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundAudioClip: {fileID: 0}
-  winScreenAudioClip: {fileID: 0}
-  gameoverScreenAudioClip: {fileID: 0}
-  dealAudioClip: {fileID: 0}
-  button: {fileID: 0}
-  soundsOnImage: {fileID: 0}
-  soundsOFFImage: {fileID: 21300000, guid: 650f702c2534c5341b25d4428ef409b3, type: 3}
-  ClickedButton: {fileID: 467552832}
-  isON: 1
 --- !u!1 &489315328
 GameObject:
   m_ObjectHideFlags: 0
