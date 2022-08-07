@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
     private int enemyTurnPausedFor = 0;
 
     public Animator transition = null;
+    
 
     void Awake()
     {
@@ -74,6 +75,8 @@ public class GameController : MonoBehaviour
         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
 
         StartCoroutine(DealHands());
+
+        
     }
 
     #region Game Set Up
@@ -283,7 +286,11 @@ public class GameController : MonoBehaviour
     {
         //transition.SetTrigger("Start");
 
+        
+
         yield return new WaitForSeconds(1);
+
+        
 
         SceneManager.LoadScene(5);
     }

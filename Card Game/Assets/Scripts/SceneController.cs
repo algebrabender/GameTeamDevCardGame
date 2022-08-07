@@ -22,6 +22,8 @@ public class SceneController : MonoBehaviour
     public Button newGameButton;
     public Button quitButton;
     public Text gameWinText;
+    public Image blackImage;
+    public Text credits;
 
     void Start()
     {
@@ -85,7 +87,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(15.0f);
+        yield return new WaitForSeconds(5.0f);
 
         //AudioManager.instance.PlayWinScreenAudio();
 
@@ -93,13 +95,25 @@ public class SceneController : MonoBehaviour
 
         gameWinText.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
 
+        
+
+       // yield return new WaitForSeconds(0.5f);
+
+       
+
+        yield return new WaitForSeconds(4);
+        credits.gameObject.SetActive(true);
+        blackImage.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(34);
+        credits.gameObject.SetActive(false);
+        blackImage.gameObject.SetActive(false);
+        
         newGameButton.gameObject.SetActive(true);
+        quitButton.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
-
-        quitButton.gameObject.SetActive(true); 
     }
 
 
