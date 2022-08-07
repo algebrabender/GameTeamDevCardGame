@@ -67,7 +67,12 @@ public class SceneController : MonoBehaviour
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
       
     }
-    
+    //-------------------------------------
+    public void HowToPlayButton()
+    {
+        StartCoroutine(LoadLevel(6));
+    }
+    //-----------------------------------------
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
