@@ -96,11 +96,6 @@ public class AudioManager : MonoBehaviour
             isON = false;
             backgroundAudioSource.Stop();
 
-
-            backgroundAudioSource.Stop();
-            gameoverScreenAudioSource.Stop();
-            winScreenAudioSource.Stop();
-
         }
         else
         {
