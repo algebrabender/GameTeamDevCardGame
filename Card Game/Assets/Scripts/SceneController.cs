@@ -52,6 +52,12 @@ public class SceneController : MonoBehaviour
 
     }
 
+    public void CreateANewGame()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+
+    }
+
     //Function for quit the game when hit quit button
     public void Quit()
     {
