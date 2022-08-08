@@ -1,11 +1,8 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-
-
 
 public class SoundTurnOnOffScript : MonoBehaviour
 {
@@ -51,7 +48,7 @@ public class SoundTurnOnOffScript : MonoBehaviour
     }
 
 
-    private void UpdateButtonIcon()
+    public void UpdateButtonIcon()
     {
         if (muted == false)
         {
@@ -68,15 +65,14 @@ public class SoundTurnOnOffScript : MonoBehaviour
 
 
 
-    private void Load()
+    public void Load()
     {
         muted = PlayerPrefs.GetInt("muted") == 1;
     }
 
-    private void Save()
+    public void Save()
     {
         PlayerPrefs.SetInt("muted", muted ? 1 : 0);
     }
 
 }
-*/

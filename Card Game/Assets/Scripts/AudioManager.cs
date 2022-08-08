@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayWinScreenAudio()
-    {
+    {   
         backgroundAudioSource.Stop();
         winScreenAudioSource.Play();
         backgroundAudioSource.PlayDelayed(3.0f);
@@ -50,14 +50,17 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameOverAudio()
     {
-        backgroundAudioSource.Stop();
-        gameoverScreenAudioSource.Play();
-        backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
+        
+   
+            backgroundAudioSource.Stop();
+            gameoverScreenAudioSource.Play();
+            backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
+      
     }
 
     public void PlayBackgroundAudio()
     {
-        backgroundAudioSource.Play();
+            backgroundAudioSource.Play();
     }
     /*
     public void PlayDealAudio()
@@ -76,5 +79,37 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
         return audioSource;
     }
+    //-----------------------------------------------------------------------------------
+
+    public Sprite soundOnImage;
+    public Sprite soundOFFImage;
+
+    public Button MuteButton;
+    public bool isON = true;
+
+
+    public void PressButton()
+    {
+        if (isON)
+        {
+            MuteButton.image.sprite = soundOFFImage;
+            isON = false;
+            backgroundAudioSource.Stop();
+
+
+            backgroundAudioSource.Stop();
+            gameoverScreenAudioSource.Stop();
+            winScreenAudioSource.Stop();
+
+        }
+        else
+        {
+            MuteButton.image.sprite = soundOnImage;
+            isON = true;
+            backgroundAudioSource.Play();
+           
+}
+    }
+
 }
       
