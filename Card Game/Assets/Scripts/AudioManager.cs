@@ -29,39 +29,60 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+
         if (backgroundAudioSource == null || !backgroundAudioSource.isPlaying)
         {
             backgroundAudioSource = AddAudio(backgroundAudioClip, false, true, 0.25f);
-            backgroundAudioSource.Play();
+            if (!isON){}
+            else
+            {
+                backgroundAudioSource.Play();
+            }
+
+
         }
 
         winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.5f);
         gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, false, 0.5f);
        // dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
-
     }
 
+
     public void PlayWinScreenAudio()
-    {   
-        backgroundAudioSource.Stop();
-        winScreenAudioSource.Play();
-        backgroundAudioSource.PlayDelayed(3.0f);
+    {
+
+        if (!isON){}
+        else
+        {
+            backgroundAudioSource.Stop();
+
+            winScreenAudioSource.Play();
+            backgroundAudioSource.PlayDelayed(3.0f);
+        }
     }
 
     public void PlayGameOverAudio()
     {
-        
-   
+
+        if (!isON){}
+        else
+        {
             backgroundAudioSource.Stop();
             gameoverScreenAudioSource.Play();
             backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
+        }
       
     }
 
     public void PlayBackgroundAudio()
     {
+        if (!isON){ }
+        else
+        {
             backgroundAudioSource.Play();
+        }
     }
+
     /*
     public void PlayDealAudio()
     {
@@ -79,6 +100,7 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
         return audioSource;
     }
+
     //-----------------------------------------------------------------------------------
 
     public Sprite soundOnImage;
@@ -96,15 +118,16 @@ public class AudioManager : MonoBehaviour
             isON = false;
             backgroundAudioSource.Stop();
 
+
         }
         else
         {
             MuteButton.image.sprite = soundOnImage;
             isON = true;
             backgroundAudioSource.Play();
-           
-}
+        }
     }
+    
 
 }
       
