@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     public static AudioSource gameoverScreenAudioSource;
 
     public AudioClip dealAudioClip;
-    public static AudioSource dealAudioSource;
+    //public static AudioSource dealAudioSource;
 
     public Button button;
 
@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
 
         winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.5f);
         gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, false, 0.5f);
-        dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
+       // dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
 
     }
 
@@ -59,11 +59,13 @@ public class AudioManager : MonoBehaviour
     {
         backgroundAudioSource.Play();
     }
-
+    /*
     public void PlayDealAudio()
     {
         dealAudioSource.Play();
     }
+
+    */
 
     private AudioSource AddAudio(AudioClip clip, bool playOnAwake, bool loop, float volume)
     {

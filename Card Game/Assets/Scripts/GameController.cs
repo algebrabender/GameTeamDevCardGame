@@ -561,6 +561,43 @@ public class GameController : MonoBehaviour
             animator.SetTrigger("Flip");
         else
             Debug.LogError("No animator found");
+        //var anitaDelay = new WaitForSeconds(10.0f);
+    }
+
+    public void MouseOverCard(Card card)
+    {   if ( player )
+        {
+            //new WaitForSecondsRealtime(5);
+            new WaitForSeconds(20000);
+            Animator animator = card.GetComponentInChildren<Animator>();
+            Debug.Log(this);
+            if (animator)
+            {
+                //transform.SetSiblingIndex(1);
+                animator.Play("HowerOn");
+            }
+            else
+                Debug.LogError("No animator found");
+        }
+    }
+
+    public void MouseExitsCard(Card card)
+    {   if (player)
+        {
+            //new WaitForSecondsRealtime(4);
+            new WaitForSeconds(10000);
+            Animator animator = card.GetComponentInChildren<Animator>();
+            Debug.Log("exit");
+
+            if (animator)
+            {
+                animator.Play("HowerOff");
+            }
+            else
+                Debug.LogError("No animator found");
+
+            //GameController.instance.GetComponent<Animator>.Play("Hower Off");
+        }
     }
 
     #endregion

@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTitle: Energy Drink
   description: Just one shouldn't end in a heart attack?
+  specialEffect: 
   damage: 0
   blackStrength: 0
   strength: 4
   health: -2
   maxStrenght: 0
   maxHealth: 0
-  cardFront: {fileID: 21300000, guid: e5a5ba6b992f73449a85ba0f4fe03f56, type: 3}
+  cardFront: {fileID: 21300000, guid: 8b32319f2df30f94bbc473bb99be896b, type: 3}
   cardBack: {fileID: 21300000, guid: c87335a7f0c73b4459d1cba454ce80c3, type: 3}
   cardImage: {fileID: 21300000, guid: 7a28b07b20b00c4409cf830d71412696, type: 3}
   numberInDeck: 2
+  numberOfTurnsSkippedAfter: 0

@@ -60,9 +60,10 @@ public class Enemy : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Hit");
     }
-
+    /*
     internal void PlayDealSound()
     {
         AudioManager.instance.PlayDealAudio();
     }
+    */
 }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Flying Boot
   m_EditorClassIdentifier: 
   cardTitle: Flying Boot
-  description: Good enough for Bush, good enough for these guys!
+  description: Good enough for Bush, good enough for you!
+  specialEffect: 
   damage: 3
   blackStrength: 0
   strength: -2
@@ -24,3 +25,4 @@ MonoBehaviour:
   cardBack: {fileID: 21300000, guid: c87335a7f0c73b4459d1cba454ce80c3, type: 3}
   cardImage: {fileID: 21300000, guid: 0c3c327ce7730c34288551c89c6fdca6, type: 3}
   numberInDeck: 3
+  numberOfTurnsSkippedAfter: 0

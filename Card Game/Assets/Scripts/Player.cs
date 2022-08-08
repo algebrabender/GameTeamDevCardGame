@@ -57,8 +57,10 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Hit");
     }
 
+    /*
     internal void PlayDealSound()
     {
         AudioManager.instance.PlayDealAudio();
     }
+    */
 }
