@@ -66,6 +66,8 @@ public class GameController : MonoBehaviour
     public HitStat hitStatEMH;
     public HitStat hitStatEH;
 
+    private Card currentHoveredCard = null;
+
     void Awake()
     {
         instance = this;
@@ -608,15 +610,17 @@ public class GameController : MonoBehaviour
         else
             Debug.LogError("No animator found");
     }
+    
 
     public void MouseOverCard(Card card)
-    {  
+    {
         if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(5);
             new WaitForSeconds(20000);
             Animator animator = card.GetComponentInChildren<Animator>();
             Debug.Log(this);
+
             if (animator)
             {
                 animator.Play("HowerOn");
@@ -628,7 +632,7 @@ public class GameController : MonoBehaviour
     }
 
     public void MouseExitsCard(Card card)
-    {   
+    {
         if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(4);
