@@ -61,8 +61,9 @@ public class Card : MonoBehaviour
     {
         //PointerEventData pData = (PointerEventData)data;
         //Debug.Log(this);
-
+      
         GameController.instance.UseCard(this);
+        GameController.instance.CheckStatAnim(this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -47,7 +47,24 @@ public class GameController : MonoBehaviour
     private int enemyTurnPausedFor = 0;
     private bool cardsDealt = false;
 
-    public Animator transition = null;    
+    public Animator transition = null;
+
+    public HitStat hitStatMS; 
+    //Animator animHitStatMS =  hitStatMS.GetComponent<Animator>();
+
+    public HitStat hitStatS; 
+    //Animator animHitStatS = hitStatMS.GetComponent<Animator>();
+
+    public HitStat hitStatMH; 
+    //Animator animHitStatMH = hitStatMS.GetComponent<Animator>();
+
+    public HitStat hitStatH;
+    //Animator animHitStatH = hitStatMS.GetComponent<Animator>();
+
+    public HitStat hitStatEMS;
+    public HitStat hitStatES;
+    public HitStat hitStatEMH;
+    public HitStat hitStatEH;
 
     void Awake()
     {
@@ -76,6 +93,7 @@ public class GameController : MonoBehaviour
         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
 
         StartCoroutine(DealHands());
+       
     }
 
     #region Game Set Up
@@ -447,6 +465,7 @@ public class GameController : MonoBehaviour
         {
             messageText.text = "You're too weak for this card right now!";
         }
+        
 
         return valid;
     }
@@ -547,15 +566,18 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             enemysHand.RemoveCard(card);
-
+            GameController.instance.CheckStatAnim(card);
             yield return new WaitForSeconds(0.5f);
 
             player.hitImage.gameObject.SetActive(false);
+           
+
             player.UpdateHealth();
             player.UpdateStrength();
 
             enemy.UpdateHealth();
             enemy.UpdateStrength();
+
 
             isPlayable = true;
         }
@@ -654,6 +676,123 @@ public class GameController : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    #endregion
+
+    #region StatAnim
+   
+
+    public void CheckStatAnim(Card card)
+    {
+        {
+            if (isPlayable == false)
+            {
+                if (card.cardData.damage != 0)
+                {
+                    hitStatEH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("playerdamage");
+
+                }
+
+                if (card.cardData.maxStrenght != 0)
+                {
+                    hitStatMS.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("playerMS");
+
+                }
+
+                if (card.cardData.strength != 0)
+                {
+                    hitStatS.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("playerS");
+
+                }
+                if (card.cardData.maxHealth != 0)
+                {
+                    hitStatMH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("playerMH");
+
+                }
+                if (card.cardData.health != 0)
+                {
+                    hitStatH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("playerH");
+
+                }
+
+            }
+            else
+            {
+                if (card.cardData.damage != 0)
+                {
+                    hitStatH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemydamage");
+
+                }
+
+                if (card.cardData.maxStrenght != 0)
+                {
+                    hitStatEMS.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemyMS");
+
+                }
+
+                if (card.cardData.blackStrength != 0)
+                {
+                    hitStatS.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemyBlackStrength");
+
+                }
+
+                if (card.cardData.strength != 0)
+                {
+                    hitStatES.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemyS");
+
+                }
+                if (card.cardData.maxHealth != 0)
+                {
+                    hitStatEMH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemyMH");
+
+                }
+
+                if (card.cardData.health != 0)
+                {
+                    hitStatEH.animatorStat.SetTrigger("HitStat");
+
+                    new WaitForEndOfFrame();
+                    Debug.Log("enemyH");
+
+                }
+
+            }
+
+          
+
+        }
+
     }
 
     #endregion
