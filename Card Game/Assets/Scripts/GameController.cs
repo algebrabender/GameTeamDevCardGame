@@ -44,9 +44,9 @@ public class GameController : MonoBehaviour
     private int enemiesPerLevelTakenOut = 0;
     private bool newEnemy = false;
     private int enemyTurnPausedFor = 0;
+    private bool cardsDealt = false;
 
-    public Animator transition = null;
-    
+    public Animator transition = null;    
 
     void Awake()
     {
@@ -75,8 +75,6 @@ public class GameController : MonoBehaviour
         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
 
         StartCoroutine(DealHands());
-
-        
     }
 
     #region Game Set Up
@@ -121,6 +119,7 @@ public class GameController : MonoBehaviour
         }
 
         isPlayable = true;
+        cardsDealt = true;
     }
 
     internal void EnemyTurn()
@@ -157,6 +156,8 @@ public class GameController : MonoBehaviour
 
     internal IEnumerator CheckIfEnemyTakenOut()
     {
+        cardsDealt = false;
+        
         switch (lastPlayedLevel)
         {
             case 0:
@@ -178,7 +179,7 @@ public class GameController : MonoBehaviour
                             enemyDeck.DealCard(enemysHand);
                             playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
-                        }   
+                        }
                     }
                     else
                     {
@@ -258,6 +259,8 @@ public class GameController : MonoBehaviour
                     StartCoroutine(GameWin());
                 break;
         }
+
+        cardsDealt = true;
 
         enemy.UpdateMaxHealth();
         enemy.UpdateHealth();
@@ -429,11 +432,15 @@ public class GameController : MonoBehaviour
             playersHand.RemoveCard(cardBeingPlayed);
 
             //THIS CLEARS HAND AFTER EVERY PLAYED CARD
+            cardsDealt = false;
+
             playersHand.ClearHand(true);
             for (int i = 0; i < 3; i++)
             {
                 playerDeck.DealCard(playersHand);
             }
+
+            cardsDealt = true;
             //IF NOT NEEDED JUST BETWEEN THIS COMMENT NEEDS TO BE DELETED
 
 
@@ -522,7 +529,11 @@ public class GameController : MonoBehaviour
 
             TurnCard(card);
 
-            yield return new WaitForSeconds(2.0f);
+            EnemyHoverEffect(card, true);
+
+            yield return new WaitForSeconds(5.0f);
+
+            EnemyHoverEffect(card, false);
 
             //if any stat is 0 it wont have any effect and we take care of unneccesary ifs
             if (card.cardData.damage != 0 || card.cardData.blackStrength != 0)
@@ -530,6 +541,8 @@ public class GameController : MonoBehaviour
 
             player.health -= card.cardData.damage;
             player.strength -= card.cardData.blackStrength;
+
+            yield return new WaitForSeconds(1.5f);
 
             CheckIfGameOver();
 
@@ -561,11 +574,26 @@ public class GameController : MonoBehaviour
             animator.SetTrigger("Flip");
         else
             Debug.LogError("No animator found");
-        //var anitaDelay = new WaitForSeconds(10.0f);
+    }
+
+    internal void EnemyHoverEffect(Card card, bool on)
+    {
+        Animator animator = card.GetComponentInChildren<Animator>();
+
+        if (animator)
+        {
+            if (on)
+                animator.SetTrigger("HowerOn");
+            else
+                animator.SetTrigger("HowerOff");
+        }
+        else
+            Debug.LogError("No animator found");
     }
 
     public void MouseOverCard(Card card)
-    {   if ( player )
+    {  
+        if (isPlayable && cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(5);
             new WaitForSeconds(20000);
@@ -582,7 +610,8 @@ public class GameController : MonoBehaviour
     }
 
     public void MouseExitsCard(Card card)
-    {   if (player)
+    {   
+        if (isPlayable && cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(4);
             new WaitForSeconds(10000);

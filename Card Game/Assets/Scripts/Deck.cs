@@ -102,6 +102,9 @@ public class Deck
             card.cardData = RandomCard(isPlayer);
             card.Initialize();
 
+            if (isPlayer)
+                card.isPlayers = true;
+
             Animator animator = newCard.GetComponentInChildren<Animator>();
             if (animator)
             {

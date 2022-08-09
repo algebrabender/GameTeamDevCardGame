@@ -18,9 +18,8 @@ public class Card : MonoBehaviour
     public Image cardImage = null;
     public Image cardFrontImage = null;
     public Image cardBackImage = null;
-
+    public bool isPlayers = false;
   
-
     public void Initialize()
     {
         if (cardData == null)
