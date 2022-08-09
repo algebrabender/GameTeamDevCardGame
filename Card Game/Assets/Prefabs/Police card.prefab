@@ -225,6 +225,7 @@ MonoBehaviour:
   cardImage: {fileID: 8065602765284663653}
   cardFrontImage: {fileID: 8065602765478008860}
   cardBackImage: {fileID: 8065602765550461192}
+  isPlayers: 0
 --- !u!114 &7229362452494295287
 MonoBehaviour:
   m_ObjectHideFlags: 0
