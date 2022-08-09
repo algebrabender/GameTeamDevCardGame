@@ -339,9 +339,9 @@ MonoBehaviour:
   winScreenAudioClip: {fileID: 8300000, guid: 36c0ded01332b1b4cb2acbf1d6fe4791, type: 3}
   gameoverScreenAudioClip: {fileID: 8300000, guid: 994f4d8358b42a140a667a8d36dbaa56, type: 3}
   dealAudioClip: {fileID: 8300000, guid: 3dd64e7876b3ecd489560c4188ee91cd, type: 3}
-  button: {fileID: 0}
+  soundOnImage: {fileID: 21300000, guid: 23f6f96b69de62c4a9cb058c28143c03, type: 3}
   soundOFFImage: {fileID: 21300000, guid: 650f702c2534c5341b25d4428ef409b3, type: 3}
-  MuteButton: {fileID: 0}
+  isON: 1
 --- !u!4 &298915593
 Transform:
   m_ObjectHideFlags: 0

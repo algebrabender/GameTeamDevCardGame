@@ -25,8 +25,24 @@ public class SceneController : MonoBehaviour
     public Image blackImage;
     public Text credits;
 
+    public Button MuteButton = null;
+
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (AudioManager.instance.isON)
+            {
+                MuteButton.image.sprite = AudioManager.instance.soundOnImage;
+                //AudioManager.instance.PauseBackgroundAudio();
+            }
+            else
+            {
+                MuteButton.image.sprite = AudioManager.instance.soundOFFImage;
+                //AudioManager.instance.UnpauseBackgroundAudio();
+            }
+        }
+
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             AudioManager.instance.PlayGameOverAudio();
@@ -48,12 +64,8 @@ public class SceneController : MonoBehaviour
     // Function for start game when we hit play button
     public void PlayGame()
     {
-<<<<<<< Updated upstream
         StartCoroutine(LoadLevel(3));
-=======
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 2));
-
->>>>>>> Stashed changes
     }
 
     public void CreateANewGame()
@@ -76,7 +88,7 @@ public class SceneController : MonoBehaviour
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
       
     }
@@ -126,6 +138,24 @@ public class SceneController : MonoBehaviour
         newGameButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
 
+    }
+
+    public void PressButton()
+    {
+        if (AudioManager.instance.isON)
+        {
+            MuteButton.image.sprite = AudioManager.instance.soundOFFImage;
+            AudioManager.instance.isON = false;
+            AudioManager.instance.PauseBackgroundAudio();
+
+
+        }
+        else
+        {
+            MuteButton.image.sprite = AudioManager.instance.soundOnImage;
+            AudioManager.instance.isON = true;
+            AudioManager.instance.UnpauseBackgroundAudio();
+        }
     }
 
 

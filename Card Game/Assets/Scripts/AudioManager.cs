@@ -16,9 +16,11 @@ public class AudioManager : MonoBehaviour
     public static AudioSource gameoverScreenAudioSource;
 
     public AudioClip dealAudioClip;
-    //public static AudioSource dealAudioSource;
+    public static AudioSource dealAudioSource;
 
-    public Button button;
+    public Sprite soundOnImage;
+    public Sprite soundOFFImage;
+    public bool isON = true;
 
     void Awake()
     {
@@ -44,7 +46,7 @@ public class AudioManager : MonoBehaviour
 
         winScreenAudioSource = AddAudio(winScreenAudioClip, false, false, 0.5f);
         gameoverScreenAudioSource = AddAudio(gameoverScreenAudioClip, false, false, 0.5f);
-       // dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
+        dealAudioSource = AddAudio(dealAudioClip, false, false, 1.0f);
     }
 
 
@@ -83,6 +85,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void UnpauseBackgroundAudio()
+    {
+        if (!isON) { }
+        else
+        {
+            backgroundAudioSource.UnPause();
+        }
+    }
+
+    public void PauseBackgroundAudio()
+    {
+        if (isON) { }
+        else
+        {
+            backgroundAudioSource.Pause();
+        }
+    }
+
     /*
     public void PlayDealAudio()
     {
@@ -102,32 +122,5 @@ public class AudioManager : MonoBehaviour
     }
 
     //-----------------------------------------------------------------------------------
-
-    public Sprite soundOnImage;
-    public Sprite soundOFFImage;
-
-    public Button MuteButton;
-    public bool isON = true;
-
-
-    public void PressButton()
-    {
-        if (isON)
-        {
-            MuteButton.image.sprite = soundOFFImage;
-            isON = false;
-            backgroundAudioSource.Stop();
-
-
-        }
-        else
-        {
-            MuteButton.image.sprite = soundOnImage;
-            isON = true;
-            backgroundAudioSource.Play();
-        }
-    }
-    
-
 }
       
