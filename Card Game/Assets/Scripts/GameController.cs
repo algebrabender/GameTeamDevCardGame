@@ -587,6 +587,9 @@ public class GameController : MonoBehaviour
             Debug.LogError("No animator found");
     }
 
+    //--------------------------------------------------------------------------------------------------------
+    
+
     public void MouseOverCard(Card card)
     {  
         if (cardsDealt && card.isPlayers)
