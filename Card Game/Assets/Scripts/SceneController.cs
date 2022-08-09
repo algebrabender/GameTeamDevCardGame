@@ -48,13 +48,13 @@ public class SceneController : MonoBehaviour
     // Function for start game when we hit play button
     public void PlayGame()
     {
-        PlayerPrefs.SetInt("lastPlayedLevel", 0);
-        PlayerPrefs.Save();
         StartCoroutine(LoadLevel(3));
     }
 
     public void CreateANewGame()
     {
+        PlayerPrefs.SetInt("lastPlayedLevel", 0);
+        PlayerPrefs.Save();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
