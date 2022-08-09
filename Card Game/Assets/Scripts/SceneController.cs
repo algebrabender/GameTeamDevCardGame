@@ -48,14 +48,14 @@ public class SceneController : MonoBehaviour
     // Function for start game when we hit play button
     public void PlayGame()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-
+        PlayerPrefs.SetInt("lastPlayedLevel", 0);
+        PlayerPrefs.Save();
+        StartCoroutine(LoadLevel(3));
     }
 
     public void CreateANewGame()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-
     }
 
     //Function for quit the game when hit quit button

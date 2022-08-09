@@ -69,6 +69,7 @@ MonoBehaviour:
   cardImage: {fileID: 6868791306244610823}
   cardFrontImage: {fileID: 6868791306136232574}
   cardBackImage: {fileID: 6868791305979829098}
+  isPlayers: 0
 --- !u!95 &7734500767691677824
 Animator:
   serializedVersion: 4

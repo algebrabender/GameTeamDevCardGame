@@ -1794,6 +1794,7 @@ MonoBehaviour:
   policemanCardPrefab: {fileID: 7717573042065165405, guid: 76d45f1d9b5aee74f8e1c90f7db5d434, type: 3}
   mayorCardPrefab: {fileID: 8012576846461833885, guid: c95c7d3716d67ef4e9acc56f400a3ed3, type: 3}
   canvas: {fileID: 1471571563}
+  objForCards: {fileID: 176361241}
   isPlayable: 0
   transition: {fileID: 0}
 --- !u!4 &799518129
@@ -2484,7 +2485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2940486658418240420, guid: c95c7d3716d67ef4e9acc56f400a3ed3, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2940486658418240420, guid: c95c7d3716d67ef4e9acc56f400a3ed3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2614,7 +2615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996324906938707453, guid: 0ebb1326bd75d8f4ea6a1c159fd81282, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5996324906938707453, guid: 0ebb1326bd75d8f4ea6a1c159fd81282, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3154,7 +3155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6483407776492095024, guid: fb5ad826845d1354bbc7d54f4b8bc155, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6483407776492095024, guid: fb5ad826845d1354bbc7d54f4b8bc155, type: 3}
       propertyPath: m_LocalScale.x
@@ -3537,7 +3538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614200980706280003, guid: 76d45f1d9b5aee74f8e1c90f7db5d434, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4614200980706280003, guid: 76d45f1d9b5aee74f8e1c90f7db5d434, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4079,7 +4080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643615722619835271, guid: 2b264c19e2867894491fb7ab6b39afe2, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5643615722619835271, guid: 2b264c19e2867894491fb7ab6b39afe2, type: 3}
       propertyPath: m_AnchorMax.x

@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
     public GameObject policemanCardPrefab = null;
     public GameObject mayorCardPrefab = null;
     public Canvas canvas = null;
+    public GameObject objForCards = null;   
 
     public bool isPlayable = false;
     internal int lastPlayedLevel = 0; //level - 1
@@ -195,11 +196,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
-                        playersHand.ClearHand(true);
+                        //playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-                            playerDeck.DealCard(playersHand);
+                            //playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -220,11 +221,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 4;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
-                        playersHand.ClearHand(true);
+                        //playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-                            playerDeck.DealCard(playersHand);
+                            //playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -242,11 +243,11 @@ public class GameController : MonoBehaviour
                         enemy.maxStrength = enemy.strength = 5;
                         enemysHand.ClearHand();
                         enemyDeck.CreateEnemyDeck(lastPlayedLevel);
-                        playersHand.ClearHand(true);
+                        //playersHand.ClearHand(true);
                         for (int i = 0; i < 3; i++)
                         {
                             enemyDeck.DealCard(enemysHand);
-                            playerDeck.DealCard(playersHand);
+                            //playerDeck.DealCard(playersHand);
                             //yield return new WaitForSeconds(1.0f);
                         }
                     }
@@ -260,8 +261,6 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        cardsDealt = true;
-
         enemy.UpdateMaxHealth();
         enemy.UpdateHealth();
         enemy.UpdateMaxStrength();
@@ -272,6 +271,7 @@ public class GameController : MonoBehaviour
         enemy.hitImage.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(1.0f);
+        cardsDealt = true;
     }
 
     internal void CheckIfGameOver()
@@ -439,10 +439,7 @@ public class GameController : MonoBehaviour
             {
                 playerDeck.DealCard(playersHand);
             }
-
-            cardsDealt = true;
             //IF NOT NEEDED JUST BETWEEN THIS COMMENT NEEDS TO BE DELETED
-
 
             EnemyTurn();
         }
@@ -450,8 +447,6 @@ public class GameController : MonoBehaviour
         {
             messageText.text = "You're too weak for this card right now!";
         }
-
-        //if we have some animations they can go here
 
         return valid;
     }
@@ -582,6 +577,7 @@ public class GameController : MonoBehaviour
 
         if (animator)
         {
+            card.transform.SetAsLastSibling();
             if (on)
                 animator.SetTrigger("HowerOn");
             else
@@ -593,7 +589,7 @@ public class GameController : MonoBehaviour
 
     public void MouseOverCard(Card card)
     {  
-        if (isPlayable && cardsDealt && card.isPlayers)
+        if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(5);
             new WaitForSeconds(20000);
@@ -601,8 +597,8 @@ public class GameController : MonoBehaviour
             Debug.Log(this);
             if (animator)
             {
-                //transform.SetSiblingIndex(1);
                 animator.Play("HowerOn");
+                card.transform.SetAsLastSibling();
             }
             else
                 Debug.LogError("No animator found");
@@ -611,7 +607,7 @@ public class GameController : MonoBehaviour
 
     public void MouseExitsCard(Card card)
     {   
-        if (isPlayable && cardsDealt && card.isPlayers)
+        if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(4);
             new WaitForSeconds(10000);
