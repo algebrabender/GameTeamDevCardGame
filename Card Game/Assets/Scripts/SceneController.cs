@@ -48,7 +48,12 @@ public class SceneController : MonoBehaviour
     // Function for start game when we hit play button
     public void PlayGame()
     {
+<<<<<<< Updated upstream
         StartCoroutine(LoadLevel(3));
+=======
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 2));
+
+>>>>>>> Stashed changes
     }
 
     public void CreateANewGame()
@@ -75,12 +80,13 @@ public class SceneController : MonoBehaviour
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
       
     }
-    //-------------------------------------
+
     public void HowToPlayButton()
     {
         StartCoroutine(LoadLevel(6));
     }
-    //-----------------------------------------
+
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
