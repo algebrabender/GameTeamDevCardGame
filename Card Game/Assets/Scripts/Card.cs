@@ -43,6 +43,7 @@ public class Card : MonoBehaviour
         entry.eventID = EventTriggerType.PointerDown;
         entry.callback.AddListener((data) => { OnClick((PointerEventData)data); });
         trigger.triggers.Add(entry);
+        
 
         EventTrigger trigger1 = GetComponent<EventTrigger>();
         EventTrigger.Entry entry1 = new EventTrigger.Entry();
@@ -67,6 +68,8 @@ public class Card : MonoBehaviour
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //if (eventData.pointerCurrentRaycast.gameObject.transform.IsChildOf(transform))
+        //    return;
         GameController.instance.MouseOverCard(this);
         //GameController.instance.GetComponent<Animator>.Play("Hower On");
 

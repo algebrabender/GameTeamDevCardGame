@@ -47,7 +47,9 @@ public class GameController : MonoBehaviour
     private int enemyTurnPausedFor = 0;
     private bool cardsDealt = false;
 
-    public Animator transition = null;    
+    public Animator transition = null;
+
+    private Card currentHoveredCard = null;
 
     void Awake()
     {
@@ -591,13 +593,14 @@ public class GameController : MonoBehaviour
     
 
     public void MouseOverCard(Card card)
-    {  
+    {
         if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(5);
             new WaitForSeconds(20000);
             Animator animator = card.GetComponentInChildren<Animator>();
             Debug.Log(this);
+
             if (animator)
             {
                 animator.Play("HowerOn");
@@ -609,7 +612,7 @@ public class GameController : MonoBehaviour
     }
 
     public void MouseExitsCard(Card card)
-    {   
+    {
         if (cardsDealt && card.isPlayers)
         {
             //new WaitForSecondsRealtime(4);
