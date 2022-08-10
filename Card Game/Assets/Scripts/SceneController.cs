@@ -88,7 +88,10 @@ public class SceneController : MonoBehaviour
     //Function for returning to main menu when we hit main menu button
     public void MainMenu()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+            AudioManager.instance.StopGameOverAudio();
         SceneManager.LoadScene(1);
+
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 4));
       
     }

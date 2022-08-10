@@ -276,6 +276,8 @@ public class GameController : MonoBehaviour
             case 2:
                 if (enemy.health <= 0)
                     StartCoroutine(GameWin());
+                else
+                    newEnemy = false;
                 break;
         }
 

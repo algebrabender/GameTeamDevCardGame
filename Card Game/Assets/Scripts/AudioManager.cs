@@ -71,11 +71,15 @@ public class AudioManager : MonoBehaviour
         {
             backgroundAudioSource.Stop();
             gameoverScreenAudioSource.Play();
-            backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
-            //----------------------------
-            
+            //backgroundAudioSource.PlayDelayed(gameoverScreenAudioClip.length);
         }
       
+    }
+
+    public void StopGameOverAudio()
+    {
+        gameoverScreenAudioSource.Stop();
+        backgroundAudioSource.Play();
     }
 
     public void PlayBackgroundAudio()
