@@ -66,8 +66,6 @@ public class GameController : MonoBehaviour
     public HitStat hitStatEMH;
     public HitStat hitStatEH;
 
-    private Card currentHoveredCard = null;
-
     void Awake()
     {
         instance = this;
@@ -423,7 +421,7 @@ public class GameController : MonoBehaviour
                         //adds for aid for rest is just + 0
                         //adds for tobacco for rest is just + 0
                         player.maxHealth += cardBeingPlayed.cardData.maxHealth;
-
+                        player.maxStrength += cardBeingPlayed.cardData.maxStrenght;
                         player.strength = player.strength + cardBeingPlayed.cardData.strength > player.maxStrength ? player.maxStrength : player.strength + cardBeingPlayed.cardData.strength;
                         player.health = player.health + cardBeingPlayed.cardData.health > player.maxHealth ? player.maxHealth : player.health + cardBeingPlayed.cardData.health;
 
@@ -556,7 +554,7 @@ public class GameController : MonoBehaviour
                 player.hitImage.gameObject.SetActive(true);
 
             player.health -= card.cardData.damage;
-            player.strength -= card.cardData.blackStrength;
+            player.strength = player.strength + card.cardData.blackStrength > player.maxStrength ? player.maxStrength : player.strength + card.cardData.blackStrength;
 
             yield return new WaitForSeconds(1.5f);
 
@@ -568,7 +566,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             enemysHand.RemoveCard(card);
-            GameController.instance.CheckStatAnim(card);
+            //GameController.instance.CheckStatAnim(card);
             yield return new WaitForSeconds(0.5f);
 
             player.hitImage.gameObject.SetActive(false);
@@ -611,7 +609,6 @@ public class GameController : MonoBehaviour
             Debug.LogError("No animator found");
     }
     
-
     public void MouseOverCard(Card card)
     {
         if (cardsDealt && card.isPlayers)
@@ -660,13 +657,16 @@ public class GameController : MonoBehaviour
         if (!isPlayable)
             return;
 
-        player.health = player.health + 1 > player.maxHealth ? player.maxHealth : player.health + 1;
+        player.health = player.health + 1 > player.maxHealth ? player.maxHealth : player.health + 2;
         player.strength = player.strength + 1 > player.maxStrength ? player.maxStrength : player.strength + 1;
 
         player.UpdateHealth();
         player.UpdateStrength();
 
         isPlayable = false;
+        if (newEnemy)
+            newEnemy = false;
+
         EnemyTurn();
     }
 
@@ -686,7 +686,6 @@ public class GameController : MonoBehaviour
 
     #region StatAnim
    
-
     public void CheckStatAnim(Card card)
     {
         {

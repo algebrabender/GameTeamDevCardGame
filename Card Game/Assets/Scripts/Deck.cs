@@ -32,6 +32,7 @@ public class Deck
     {
         List<CardData> cardDataInOrder = new List<CardData>();
         List<CardData> enemyCards = null;
+        cardDatas.Clear();
 
         switch(level)
         {
